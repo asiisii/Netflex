@@ -16,8 +16,11 @@ export default function Movies(props) {
   })
 
   return (
-    <section>
-      {posters}
-    </section>
+    <>
+      <h1>All Movies</h1>
+      <section className='movie-catalogue'>
+        {posters}
+      </section>
+    </>
   )
 }

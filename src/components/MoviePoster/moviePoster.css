@@ -1,0 +1,8 @@
+.movie-poster {
+  display: flex;
+  justify-content: center;
+}
+
+.poster-image {
+  width: 256px;
+}
