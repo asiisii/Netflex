@@ -1,5 +1,6 @@
-## Description
+ ## Description
 Please include a summary of the change and which issue is fixed. Please also include relevant screenshots of your code being deployed. 
+
 Fixes # (issue)
 
 ## Type of change
