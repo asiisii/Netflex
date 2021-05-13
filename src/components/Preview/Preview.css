@@ -5,8 +5,6 @@
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
-  /* padding: 0 24px; */
-  
 }
 
 .trending-container {
@@ -60,8 +58,8 @@
   }
 }
 
-/* @media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .preview {
-    height: 35vw;
+
   }
-} */
+}
