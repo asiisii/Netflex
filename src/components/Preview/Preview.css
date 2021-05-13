@@ -1,8 +1,7 @@
+
 .trending-container {
-  height: 10%;
-  width: 100%;
+  height: 45%;
   position: relative;
-  
 }
 
 .top-img {
@@ -11,7 +10,25 @@
 }
 
 .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: -1%;
+  height: 100%;
+  margin-left: 2%;
   position: absolute;
 }
+
+.movie-title,
+.trending {
+  font-size: 35px;
+  color: orange;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.movie-title {
+  font-size: 100px;
+}
+
 
 
