@@ -25,7 +25,7 @@ class App extends React.Component {
           <Preview className="preview" />
           <Movies movies={this.state.movies} />
         </main>
-        {/* <MovieInfo poster={this.state.poster} /> */}
+        <MovieInfo poster={this.state.poster} />
       </div>
     )
   }
