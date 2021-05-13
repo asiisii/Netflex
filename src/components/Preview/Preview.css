@@ -4,12 +4,13 @@
   position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin: 32px 0;
+  padding: 0 32px;
 }
 
 .trending-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1600px;
   height: 100%;
 }
 
@@ -18,8 +19,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-radius: 8px;
 }
 
 .info {
@@ -49,17 +49,10 @@
 @media only screen and (max-width: 1440px) {
   .preview {
     width: 100%;
-    /* height: 35vw; */
+    height: 324px;
   }
 
   .top-img {
     object-fit: cover;
-    border-radius: unset;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .preview {
-
   }
 }

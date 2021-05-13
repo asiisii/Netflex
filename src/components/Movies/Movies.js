@@ -16,11 +16,11 @@ export default function Movies(props) {
   })
 
   return (
-    <>
-      <h1>All Movies</h1>
-      <section className='movie-catalogue'>
+    <div className='movie-catalogue'>
+      <h1 className='results-title'>All Movies</h1>
+      <section className='movie-grid'>
         {posters}
       </section>
-    </>
+    </div>
   )
 }
