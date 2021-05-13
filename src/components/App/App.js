@@ -1,12 +1,18 @@
 import React from 'react'
 import Header from '../Header/Header'
 import Preview from '../Preview/Preview'
-import './App.css';
+import Movies from '../Movies/Movies'
+
+import movieData from '../../movieData'
+
+import './app.css';
 
 class App extends React.Component {
   constructor() {
     super();
-
+    this.state = {
+      movies: movieData.movies
+    }
   }
 
   render() {
@@ -14,6 +20,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Preview className="preview"/>
+        <Movies movies={this.state.movies} />
       </div>
     )
   }

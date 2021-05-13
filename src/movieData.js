@@ -1,4 +1,4 @@
-const movieData = {
+export default {
   "movies": [
     {
       "id": 694919,
@@ -322,5 +322,3 @@ const movieData = {
     }
   ]
 };
-
-export default movieData;
