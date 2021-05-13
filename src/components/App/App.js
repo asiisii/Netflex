@@ -6,11 +6,11 @@ import MovieInfo from '../MovieInfo/MovieInfo'
 
 import {movieData, posterData} from '../../movieData'
 
-import './app.css';
+import './app.css'
 
 class App extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       movies: movieData.movies,
       poster: posterData.movie
@@ -19,11 +19,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Header />
-        <Preview className="preview" />
+        <main>
+          <Preview className="preview" />
+          <Movies movies={this.state.movies} />
+        </main>
         <MovieInfo poster={this.state.poster} />
-        <Movies movies={this.state.movies} />
       </div>
     )
   }
