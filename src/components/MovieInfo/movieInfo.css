@@ -1,0 +1,26 @@
+.poster-section {
+  height: 100%;
+}
+
+.glass {
+  /* margin-top: 25%; */
+  background-color: black;
+}
+
+.details {
+}
+
+.poster-title,
+.overview,
+.runtime,
+.release-date,
+.rating,
+.genre {
+  
+  color: white;
+}
+
+.rating {
+  font-style: italic;
+  margin-left: 1%;
+}
