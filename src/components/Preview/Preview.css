@@ -4,8 +4,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  margin: 32px 0;
-  padding: 0 32px;
+  margin: 24px 0;
+  padding: 0 24px;
 }
 
 .trending-container {
@@ -20,6 +20,7 @@
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
+  box-shadow: 1px 1px 6px rgba(181, 181, 181, 0.75);
 }
 
 .info {
@@ -37,8 +38,8 @@
 .trending {
   font-size: 36px;
   line-height: 36px;
-  color: orange;
-  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  /* color: orange;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
 }
 
 .movie-title {
@@ -49,10 +50,23 @@
 @media only screen and (max-width: 1440px) {
   .preview {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .preview {
     height: 324px;
   }
+}
 
-  .top-img {
-    object-fit: cover;
+@media only screen and (max-width: 768px) {
+  .preview {
+    height: 243px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .preview {
+    height: 162px;
   }
 }

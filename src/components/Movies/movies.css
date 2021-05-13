@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 32px;
-  box-shadow: 0px -3px 3px rgba(181, 181, 181, 0.75);
+  padding: 24px;
+  box-shadow: 0px -1px 6px rgba(181, 181, 181, 0.75);
   z-index: 9999;
 }
 
@@ -41,14 +41,8 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
   .movie-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media only screen and (max-width: 460px) {
-  .movie-grid {
-    grid-template-columns: 1fr;
   }
 }
