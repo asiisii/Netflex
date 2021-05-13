@@ -1,21 +1,20 @@
-
 .trending-container {
-  height: 45%;
+  width: 960px;
+  height: 540px;
   position: relative;
 }
 
 .top-img {
-  height: 100%;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: -1%;
-  height: 100%;
-  margin-left: 2%;
   position: absolute;
 }
 
