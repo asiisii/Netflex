@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Header/Header'
+import Preview from '../Preview/Preview'
 import './App.css';
 
 class App extends React.Component {
@@ -10,7 +11,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Header />
+      <div className="App">
+        <Header />
+        <Preview className="preview"/>
+      </div>
     )
   }
 }
