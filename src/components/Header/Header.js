@@ -5,12 +5,14 @@ export default function Header() {
   return (
     <header>
       <h3>Netflex</h3>
-      <input 
-        type='search'
-        name='search'
-        placeholder='Movie title'
-      />
-      <button>👤</button>
+      <div>
+        <input 
+          type='search'
+          name='search'
+          placeholder='Movie title'
+        />
+        <button>👤</button>
+      </div>
     </header>
   )
 }
