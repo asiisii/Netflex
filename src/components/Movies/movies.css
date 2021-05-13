@@ -1,0 +1,10 @@
+.movie-catalogue {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 420px;
+  column-gap: 10px;
+  row-gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+}
