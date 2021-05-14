@@ -3,13 +3,31 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .glass {
-  background-color: black;
+  width: 90%;
+  height: 75%;
+  max-width: 1600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background: rgba( 0, 0, 0, 0.80 );
+  backdrop-filter: blur( 8.0px );
+  -webkit-backdrop-filter: blur( 8.0px );
+  border-radius: 150px;
 }
 
 .details {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .poster-title,
@@ -25,4 +43,19 @@
 .rating {
   font-style: italic;
   margin-left: 1%;
+}
+
+.trailer-container {
+  position: relative;
+  width: 60%;
+  height: 0;
+  padding-bottom: 33.75%;
+}
+
+.trailer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
