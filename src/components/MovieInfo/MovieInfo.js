@@ -1,5 +1,5 @@
 import React from 'react'
-import './movieInfo.css'
+import './MovieInfo.css'
 
 export default function MovieInfo(props) {
   let hr = parseInt(props.poster.runtime / 60)
