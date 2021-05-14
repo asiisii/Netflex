@@ -1,5 +1,5 @@
 import React from 'react'
-import './moviePoster.css'
+import './MoviePoster.css'
 
 export default function MoviePoster(props) {
   return (

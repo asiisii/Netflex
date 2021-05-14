@@ -1,5 +1,5 @@
 import React from 'react'
-import './preview.css'
+import './Preview.css'
 
 export default function Preview() {
   return (
