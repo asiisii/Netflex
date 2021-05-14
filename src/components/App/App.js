@@ -4,17 +4,29 @@ import Preview from '../Preview/Preview'
 import Movies from '../Movies/Movies'
 import MovieInfo from '../MovieInfo/MovieInfo'
 
-import {movieData, posterData} from '../../movieData'
-
-import './app.css'
+import apiCalls from '../../apiCalls'
+// import './app.css'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
-      poster: posterData.movie
+      movies: '',
+      poster: '',
+      error: ''
     }
+  }
+
+  displayPoster = id => {
+    apiCalls.fetchAMovie(id)
+      .then(data => this.setState({poster: data.movie}))
+      .catch(() => this.setState({error: 'OOPSYYY!'}))
+  }
+
+  componentDidMount = () => {
+    apiCalls.fetchAllMovies()
+      .then(data => this.setState({movies: data.movies}))
+      .catch(() => this.setState({error: 'OOPS!'}))
   }
 
   render() {
@@ -23,9 +35,18 @@ class App extends React.Component {
         <Header />
         <main>
           <Preview className="preview" />
-          <Movies movies={this.state.movies} />
+          {this.state.error && <h2>{this.state.error}</h2>}
+          {!this.state.error && !this.state.movies.length && <h2>💪Loading Your Movies💪</h2>}
+          {this.state.movies.length && 
+          <Movies 
+          movies={this.state.movies} 
+          display={this.displayPoster}
+          />}   
         </main>
-        {/* <MovieInfo poster={this.state.poster} /> */}
+        {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.poster && 
+          <MovieInfo poster={this.state.poster} />
+        } 
       </div>
     )
   }

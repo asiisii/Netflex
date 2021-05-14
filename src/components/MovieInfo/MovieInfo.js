@@ -34,6 +34,7 @@ export default function MovieInfo(props) {
           src="https://www.youtube.com/embed/01ON04GCwKs">
         </iframe>
       </article>
+
     </section>
   )
 }
