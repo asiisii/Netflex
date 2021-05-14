@@ -5,7 +5,7 @@ import Movies from '../Movies/Movies'
 import MovieInfo from '../MovieInfo/MovieInfo'
 
 import apiCalls from '../../apiCalls'
-// import './app.css'
+import './App.css'
 
 class App extends React.Component {
   constructor() {
@@ -38,15 +38,14 @@ class App extends React.Component {
           {this.state.error && <h2>{this.state.error}</h2>}
           {!this.state.error && !this.state.movies.length && <h2>💪Loading Your Movies💪</h2>}
           {this.state.movies.length && 
-          <Movies 
-          movies={this.state.movies} 
-          display={this.displayPoster}
-          />}   
+            <Movies 
+              movies={this.state.movies} 
+              display={this.displayPoster}
+            />
+          }    
         </main>
         {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.poster && 
-          <MovieInfo poster={this.state.poster} />
-        } 
+        {this.state.poster && <MovieInfo poster={this.state.poster} />}
       </div>
     )
   }

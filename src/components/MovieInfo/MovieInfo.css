@@ -1,9 +1,11 @@
 .poster-section {
-  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .glass {
-  /* margin-top: 25%; */
   background-color: black;
 }
 
