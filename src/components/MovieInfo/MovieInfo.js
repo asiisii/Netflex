@@ -28,14 +28,18 @@ export default function MovieInfo(props) {
           <p className="runtime">Runtime: {hr}hrs {m}mins</p> 
           <p className="release-date">Release Date: {date.join('/')}</p> 
         </div>
-        <div className='trailer-container'>
-          <iframe
-            className='trailer'
-            // width="560"
-            // height="315"
-            src="https://www.youtube.com/embed/01ON04GCwKs">
-          </iframe>
-        </div>
+        {!props.videoKey && console.log('error')}
+        {setTimeout(() => {
+          console.log(props.videoKey);
+        }, 2000)}
+        {props.videoKey &&
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${props.videoKey}`}>
+            </iframe>
+          </div>}
       </article>
     </section>
   )
