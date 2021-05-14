@@ -13,13 +13,18 @@ class App extends React.Component {
     this.state = {
       movies: '',
       poster: '',
-      error: ''
+      video: '',
+      error: 'check error'
     }
   }
 
   displayPoster = id => {
     apiCalls.fetchAMovie(id)
       .then(data => this.setState({poster: data.movie}))
+      .catch(() => this.setState({error: 'OOPSYYY!'}))
+    apiCalls.fetchVideos(id)
+      .then(data => this.setState({video: data.videos[0].key}))
+      .then(data => console.log(this.state.video))
       .catch(() => this.setState({error: 'OOPSYYY!'}))
   }
 
@@ -29,6 +34,10 @@ class App extends React.Component {
       .catch(() => this.setState({error: 'OOPS!'}))
   }
 
+  clearError = () => {
+    return this.state.error ?  this.setState({error: ''}) : true
+  }
+
   render() {
     return (
       <div className="app">
@@ -36,17 +45,27 @@ class App extends React.Component {
         <main>
           <Preview className="preview" />
           {this.state.error && <h2>{this.state.error}</h2>}
+          {this.state.poster && 
+            <MovieInfo 
+            poster={this.state.poster} 
+            videoKey={this.state.video}
+            />
+          } 
+          {this.state.error && <h2>{this.state.error}</h2>}
           {!this.state.error && !this.state.movies.length && <h2>💪Loading Your Movies💪</h2>}
-          {this.state.movies.length && 
+          {this.state.movies.length  && this.clearError() &&
           <Movies 
           movies={this.state.movies} 
           display={this.displayPoster}
           />}   
         </main>
-        {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.poster && 
-          <MovieInfo poster={this.state.poster} />
-        } 
+        {/* {this.state.error && <h2>{this.state.error}</h2>}
+        {this.state.video || this.state.poster &&
+          <MovieInfo 
+          poster={this.state.poster} 
+          videoKey={this.state.video}
+          />
+        }  */}
       </div>
     )
   }
