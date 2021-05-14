@@ -33,12 +33,13 @@ export default function MovieInfo(props) {
           console.log(props.videoKey);
         }, 2000)}
         {props.videoKey &&
-          <div>
+          <div className='trailer-container'>
             <iframe
-              width="560"
-              height="315"
+              // width="560"
+              // height="315"
+              className='trailer'
               src={`https://www.youtube.com/embed/${props.videoKey}`}>
-            </iframe>
+          </iframe>
           </div>}
       </article>
     </section>

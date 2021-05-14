@@ -45,39 +45,21 @@ class App extends React.Component {
         <main>
           <Preview className="preview" />
           {this.state.error && <h2>{this.state.error}</h2>}
+          {this.state.error && <h2>{this.state.error}</h2>}
+          {!this.state.error && !this.state.movies.length && <h2>💪Loading Your Movies💪</h2>}
+          {this.state.movies.length && this.clearError() &&
+            <Movies 
+              movies={this.state.movies} 
+              display={this.displayPoster}
+            />
+          }   
           {this.state.poster && 
             <MovieInfo 
             poster={this.state.poster} 
             videoKey={this.state.video}
             />
           } 
-          {this.state.error && <h2>{this.state.error}</h2>}
-          {!this.state.error && !this.state.movies.length && <h2>💪Loading Your Movies💪</h2>}
-<<<<<<< HEAD
-          {this.state.movies.length && 
-            <Movies 
-              movies={this.state.movies} 
-              display={this.displayPoster}
-            />
-          }    
         </main>
-        {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.poster && <MovieInfo poster={this.state.poster} />}
-=======
-          {this.state.movies.length  && this.clearError() &&
-          <Movies 
-          movies={this.state.movies} 
-          display={this.displayPoster}
-          />}   
-        </main>
-        {/* {this.state.error && <h2>{this.state.error}</h2>}
-        {this.state.video || this.state.poster &&
-          <MovieInfo 
-          poster={this.state.poster} 
-          videoKey={this.state.video}
-          />
-        }  */}
->>>>>>> main
       </div>
     )
   }

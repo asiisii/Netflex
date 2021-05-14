@@ -2,6 +2,8 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
+  max-width: 1600px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -9,18 +11,18 @@
 }
 
 .glass {
+  background: rgba( 0, 0, 0, 0.75);
   width: 90%;
   height: 75%;
-  max-width: 1600px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 32px;
-  background: rgba( 0, 0, 0, 0.80 );
-  backdrop-filter: blur( 8.0px );
-  -webkit-backdrop-filter: blur( 8.0px );
   border-radius: 150px;
-}
+  box-shadow: 0px 2px 24px 4px rgb(11, 11, 11);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  }
 
 .details {
   width: 30%;
@@ -47,10 +49,24 @@
 
 .trailer-container {
   position: relative;
-  width: 60%;
+  width: 50%;
   height: 0;
   padding-bottom: 33.75%;
+  border-radius: 16px;
 }
+
+/* .trailer-container::after {
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  box-shadow: inset 0px 0px 16px 2px rgb(0, 0, 0);
+  pointer-events: none;
+  border-radius: 16px;
+} */
 
 .trailer {
   position: absolute;
@@ -58,4 +74,6 @@
   height: 100%;
   left: 0;
   top: 0;
+  border: none;
+  border-radius: 16px;
 }
