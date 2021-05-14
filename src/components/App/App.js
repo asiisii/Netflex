@@ -41,8 +41,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header />
+        {/* <Header /> */}
         <main>
+          {this.state.poster && 
+            <MovieInfo 
+            poster={this.state.poster} 
+            videoKey={this.state.video}
+            />
+          } 
           <Preview className="preview" />
           {this.state.error && <h2>{this.state.error}</h2>}
           {this.state.error && <h2>{this.state.error}</h2>}
@@ -53,12 +59,6 @@ class App extends React.Component {
               display={this.displayPoster}
             />
           }   
-          {this.state.poster && 
-            <MovieInfo 
-            poster={this.state.poster} 
-            videoKey={this.state.video}
-            />
-          } 
         </main>
       </div>
     )
