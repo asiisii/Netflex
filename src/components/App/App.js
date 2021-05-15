@@ -35,7 +35,7 @@ class App extends React.Component {
 
   handleAnimation = () => {
     this.setState({isActive: false})
-    this.state.effect.from('.poster-section', { ease: Back.easeOut, x: -990, duration: 2}) 
+    this.state.effect.from('.poster-section', { ease: Back.easeOut, x: -1990, duration: 2}) 
     // this.state.effect.to('.home', { ease: Back.easeOut, x: 1990 })
     // this.state.effect.to('.preview', { ease: Back.easeOut, x: 1990 })
     // this.state.effect.to('.header', { ease: Back.easeOut, x: 1990 })
