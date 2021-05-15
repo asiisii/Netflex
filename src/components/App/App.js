@@ -5,7 +5,7 @@ import Movies from '../Movies/Movies'
 import MovieInfo from '../MovieInfo/MovieInfo'
 
 import apiCalls from '../../apiCalls'
-import './App.css'
+// import './App.css'
 
 class App extends React.Component {
   constructor() {
@@ -19,11 +19,12 @@ class App extends React.Component {
   }
 
   displayPoster = id => {
+    console.log(id);
     apiCalls.fetchAMovie(id)
       .then(data => this.setState({poster: data.movie}))
       .catch(() => this.setState({error: 'OOPSYYY!'}))
     apiCalls.fetchVideos(id)
-      .then(data => this.setState({video: data.videos[0].key}))
+      .then(data => this.setState({video: data}))
       .then(data => console.log(this.state.video))
       .catch(() => this.setState({error: 'OOPSYYY!'}))
   }
