@@ -12,24 +12,31 @@
 }
 
 .close-info-btn {
-  width: 108px;
-  height: 108px;
+  background: rgba(0, 0, 0, 0.80);
+  width: 72px;
+  height: 72px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 48px;
+  right: 48px;
+  border: none;
   border-radius: 50%;
+  font-size: 2.5em;
+  font-weight: lighter;
+  color: white;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .glass {
   background: rgba(0, 0, 0, 0.80);
   width: 80%;
-  /* height: 75%; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15vh 64px;
   border-radius: 150px;
-  box-shadow: 4px 4px 32px 4px rgb(43, 43, 43, .75);
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   }
