@@ -33,7 +33,7 @@ export default function MovieInfo(props) {
             </span>
             <span className="rating">
               <h4>Rating</h4>
-              {props.poster.average_rating.toFixed(0)}/10
+              <p>{props.poster.average_rating.toFixed(0)}/10</p>
             </span> 
           </div> 
         </div>

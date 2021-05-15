@@ -105,6 +105,18 @@
   row-gap: 8px;
 }
 
+.runtime h4,
+.release-date h4,
+.rating p {
+  font-weight: 600;
+}
+
+.runtime p,
+.release-date p,
+.rating p {
+  font-weight: lighter;
+}
+
 .runtime {
   grid-column: 1;
   grid-row: 1;
