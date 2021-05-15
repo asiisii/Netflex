@@ -3,7 +3,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  max-width: 1386px;
+  max-width: 1440px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15vh 32px;
+  padding: 15vh 64px;
   border-radius: 150px;
   box-shadow: 4px 4px 32px 4px rgb(43, 43, 43, .75);
   backdrop-filter: blur(4px);
@@ -28,8 +28,9 @@
   width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-right: 24px;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin-right: 64px;
 }
 
 .poster-title,
@@ -49,11 +50,6 @@
   font-size: 1.75em;
 }
 
-.rating {
-  font-size: 1em;
-  font-style: italic;
-}
-
 .genre,
 .overview {
   margin-bottom: 16px;
@@ -64,14 +60,17 @@
 }
 
 .overview {
+  height: 100%;
   margin-bottom: 1;
   text-align: justify;
 }
 
 .trailer-container {
-  position: relative;
-  width: 50%;
+  width: 45%;
   height: 0;
+  position: relative;
+  justify-self: flex-end;
+  align-self: flex-start;
   padding-bottom: 33.75%;
   border-radius: 16px;
 }
@@ -99,6 +98,32 @@
   border-radius: 16px;
 }
 
+.stats {
+  grid-template-columns: 70% 30%;
+  grid-template-rows: repeat(2 auto);
+  display: grid;
+  row-gap: 8px;
+}
+
+.runtime {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.release-date {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.rating {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 @media only screen and (max-width: 1024px) {
   .glass {
     flex-direction: column-reverse;
@@ -110,11 +135,12 @@
     height: 40%;
     margin-top: 24px;
     margin-right: 0;
-    padding: 0 32px;
   }
 
   .trailer-container {
-    width: 75%;
-    padding-bottom: 42.1875%;
+    width: 100%;
+    justify-self: center;
+    align-self: flex-start;
+    padding-bottom: 56.25%;
   }
 }

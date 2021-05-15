@@ -22,10 +22,17 @@ export default function MovieInfo(props) {
           </h1>
           <p className="genre">{genres}</p>
           <p className="overview">{props.poster.overview} </p>
-          <div>
-            <p className="runtime">Runtime: {hr}hrs {m}mins</p> 
-            <p className="release-date">Release Date: {date.join('/')}</p>
+          <div className="stats">
+            <span className='runtime'>
+              <h4>Runtime</h4>
+              <p>{hr}hrs {m}mins</p> 
+            </span>
+            <span className="release-date">
+              <h4>Release date</h4>
+              <p>{date.join('/')}</p>
+            </span>
             <span className="rating">
+              <h4>Rating</h4>
               {props.poster.average_rating.toFixed(0)}/10
             </span> 
           </div> 
