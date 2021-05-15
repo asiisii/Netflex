@@ -41,6 +41,7 @@ export default function MovieInfo(props) {
         backgroundImage: `url(${props.poster.backdrop_path})`
       }}
     >
+      <button className='close-info-btn' onClick={props.handleClick}>X</button>
       <article className="glass"> 
         <div className='details'>
           {(!props.poster.title || !rating || !genres || !props.poster.overview
@@ -55,9 +56,6 @@ export default function MovieInfo(props) {
           <>
             <h1 className="poster-title"> 
               {props.poster.title} 
-              <span className="rating">
-              {rating}/10
-              </span> 
             </h1>
             <p className="genre">{genres}</p>
             <p className="overview">{props.poster.overview} </p>
@@ -70,6 +68,10 @@ export default function MovieInfo(props) {
                 <h4>Release date</h4>
                 <p>{date.join('/')}</p>
               </span>
+              <span className="rating">
+                <h4>Rating</h4>
+                <p>{rating}/10</p>
+              </span> 
             </div> 
           </>
         }
