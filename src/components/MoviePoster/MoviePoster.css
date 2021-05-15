@@ -1,6 +1,14 @@
 .movie-poster {
   display: flex;
   justify-content: center;
+  transition: transform 500ms ease;
+  cursor: pointer;
+}
+
+.movie-poster:focus,
+.movie-poster:hover {
+  transform: scale(1.2);
+  z-index: 1;
 }
 
 .poster-image {

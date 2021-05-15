@@ -43,8 +43,8 @@ export default function MovieInfo(props) {
         backgroundImage: `url(${props.poster.backdrop_path})`
       }}
     >
-      <button className='close-info-btn' onClick={props.handleClick}>X</button>
       <article className="glass"> 
+        <button className='close-info-btn' onClick={props.handleClick}>Go back</button>
         <div className='details'>
           {(!props.poster.title || !rating || !genres || !props.poster.overview
           || !hr || !m || !date) && 
@@ -83,6 +83,9 @@ export default function MovieInfo(props) {
         {props.videoKey.videos &&
           getVideoKey(props.videoKey.videos)}
       </article>
+      <footer className='mobile-btm-menu'>
+        <button className='mobile-close-info-btn' onClick={props.handleClick}>Go back</button>
+      </footer>
     </section>
   )
 }

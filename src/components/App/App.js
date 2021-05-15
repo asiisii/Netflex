@@ -5,7 +5,7 @@ import Movies from '../Movies/Movies'
 import MovieInfo from '../MovieInfo/MovieInfo'
 
 import apiCalls from '../../apiCalls'
-// import './App.css'
+import './App.css'
 import { gsap, Back } from 'gsap'
 class App extends React.Component {
   constructor() {
@@ -68,7 +68,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-       
           {this.state.poster && !this.state.isActive &&
             <MovieInfo 
             poster={this.state.poster} 
