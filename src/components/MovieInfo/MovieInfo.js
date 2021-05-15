@@ -44,7 +44,7 @@ export default function MovieInfo(props) {
       }}
     >
       <article className="glass"> 
-      <button className='close-info-btn' onClick={props.handleClick}>X</button>
+        <button className='close-info-btn' onClick={props.handleClick}>X</button>
         <div className='details'>
           {(!props.poster.title || !rating || !genres || !props.poster.overview
           || !hr || !m || !date) && 
@@ -83,8 +83,8 @@ export default function MovieInfo(props) {
         {props.videoKey.videos &&
           getVideoKey(props.videoKey.videos)}
       </article>
-      <footer className='mobile-btm-menu hidden'>
-        <button className='close-info-btn' onClick={props.handleClick}>X</button>
+      <footer className='mobile-btm-menu'>
+        <button className='mobile-close-info-btn' onClick={props.handleClick}>X</button>
       </footer>
     </section>
   )
