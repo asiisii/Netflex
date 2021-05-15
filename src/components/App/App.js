@@ -14,18 +14,16 @@ class App extends React.Component {
       movies: '',
       poster: '',
       video: '',
-      error: 'check error'
+      error: ''
     }
   }
 
   displayPoster = id => {
-    console.log(id);
     apiCalls.fetchAMovie(id)
       .then(data => this.setState({poster: data.movie}))
       .catch(() => this.setState({error: 'OOPSYYY!'}))
     apiCalls.fetchVideos(id)
       .then(data => this.setState({video: data}))
-      .then(data => console.log(this.state.video))
       .catch(() => this.setState({error: 'OOPSYYY!'}))
   }
 
@@ -42,9 +40,9 @@ class App extends React.Component {
       .catch(() => this.setState({error: 'OOPS!'}))
   }
 
-  clearError = () => {
-    return this.state.error ?  this.setState({error: ''}) : true
-  }
+  // clearError = () => {
+  //   return this.state.error ?  this.setState({error: ''}) : true
+  // }
 
   render() {
     return (
@@ -60,9 +58,8 @@ class App extends React.Component {
           } 
           <Preview className="preview" />
           {this.state.error && <h2>{this.state.error}</h2>}
-          {this.state.error && <h2>{this.state.error}</h2>}
           {!this.state.error && !this.state.movies.length && <h2>💪Loading Your Movies💪</h2>}
-          {this.state.movies.length && this.clearError() &&
+          {this.state.movies.length && !this.state.error &&
             <Movies 
               movies={this.state.movies} 
               display={this.displayPoster}
