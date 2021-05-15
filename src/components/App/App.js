@@ -47,6 +47,7 @@ class App extends React.Component {
 
   hidePoster = () => {
     this.setState({isActive: true})
+    this.state.effect.from('.wrapper', { ease: Back.easeOut, x: 2990, duration: 2}) 
     // this.state.effect.reverse()
     // this.setState({ 
     //   poster: '',
@@ -75,7 +76,7 @@ class App extends React.Component {
             handleClick={this.hidePoster}
             />
           } 
-
+        <div className="wrapper">
           {this.state.isActive &&
             <>
               <Header />
@@ -93,7 +94,7 @@ class App extends React.Component {
 
             </>
           }
-          
+         </div> 
       </div>
     )
   }
