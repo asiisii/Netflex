@@ -5,32 +5,15 @@
   width: 100%;
   max-width: 1440px;
   height: 100vh;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.close-info-btn {
-  background: rgba(0, 0, 0, 0.80);
-  width: 72px;
-  height: 72px;
-  position: absolute;
-  top: 48px;
-  right: 48px;
-  border: none;
-  border-radius: 50%;
-  font-size: 2.5em;
-  font-weight: lighter;
-  color: white;
-  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.60);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
 .glass {
   background: rgba(0, 0, 0, 0.80);
   width: 80%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +22,30 @@
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  }
+}
+
+.close-info-btn {
+  background: rgba(0, 0, 0, 0.80);
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 64px;
+  right: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  font-size: 2em;
+  font-weight: lighter;
+  color: white;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.50);
+  backdrop-filter: blur(4px);
+  transition: background .25s;
+  cursor: pointer;
+  /* -webkit-backdrop-filter: blur(4px); */
+}
+
+.close-info-btn:hover {
+  background: rgba(120, 120, 120, 0.5);
+}
 
 .details {
   width: 40%;
@@ -178,6 +184,10 @@
     -webkit-backdrop-filter: blur(12px);
   }
 
+  .close-info-btn {
+    display: none;
+  }
+
   .trailer {
     border-radius: unset;
   }
@@ -188,7 +198,7 @@
   }
 
   .overview {
-    max-height: 72px;
+    max-height: 96px;
     overflow: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
