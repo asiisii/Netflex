@@ -29,6 +29,13 @@ class App extends React.Component {
       .catch(() => this.setState({error: 'OOPSYYY!'}))
   }
 
+  hidePoster = () => {
+    this.setState({ 
+      poster: '',
+      video: '' 
+    })
+  }
+
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
       .then(data => this.setState({movies: data.movies}))
@@ -46,8 +53,9 @@ class App extends React.Component {
         <main>
           {this.state.poster && 
             <MovieInfo 
-            poster={this.state.poster} 
-            videoKey={this.state.video}
+              poster={this.state.poster} 
+              videoKey={this.state.video}
+              handleClick={this.hidePoster}
             />
           } 
           <Preview className="preview" />

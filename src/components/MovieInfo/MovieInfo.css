@@ -5,9 +5,19 @@
   width: 100%;
   max-width: 1440px;
   height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.close-info-btn {
+  width: 108px;
+  height: 108px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
 }
 
 .glass {
@@ -31,14 +41,6 @@
   justify-content: flex-start;
   align-self: flex-start;
   margin-right: 64px;
-}
-
-.poster-title,
-.overview,
-.runtime,
-.release-date,
-.rating,
-.genre {
   color: white;
 }
 
