@@ -31,13 +31,10 @@ export default function MovieInfo(props) {
   let m = props.poster.runtime % 60
   m = m < 10 ? '0' + m : m
   let date = props.poster.release_date.split('-')
-  // let date = [...splittedDate]
-  // ["2021", "09", "04"]
   let yyyy = date[0]
   let mm = date[1]
   let dd = date[2]
   date = `${mm}/${dd}/${yyyy}`
-  // {[date[0], date[1], date[2]] = [date[1], date[2], date[0]] }
   let genres =  props.poster.genres.join(' | ')
   let rating = props.poster.average_rating.toFixed(1)
   return (
