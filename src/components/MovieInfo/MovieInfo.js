@@ -19,19 +19,28 @@ export default function MovieInfo(props) {
         <div className='details'>
           <h1 className="poster-title"> 
             {props.poster.title} 
-            <span className="rating">
-            {props.poster.average_rating}/10
-            </span> 
           </h1>
           <p className="genre">{genres}</p>
           <p className="overview">{props.poster.overview} </p>
-          <p className="runtime">Runtime: {hr}hrs {m}mins</p> 
-          <p className="release-date">Release Date: {date.join('/')}</p> 
+          <div className="stats">
+            <span className='runtime'>
+              <h4>Runtime</h4>
+              <p>{hr}hrs {m}mins</p> 
+            </span>
+            <span className="release-date">
+              <h4>Release date</h4>
+              <p>{date.join('/')}</p>
+            </span>
+            <span className="rating">
+              <h4>Rating</h4>
+              <p>{props.poster.average_rating.toFixed(0)}/10</p>
+            </span> 
+          </div> 
         </div>
-        {!props.videoKey && console.log('error')}
+        {/* {!props.videoKey && console.log('error')}
         {setTimeout(() => {
           console.log(props.videoKey);
-        }, 2000)}
+        }, 2000)} */}
         {props.videoKey &&
           <div className='trailer-container'>
             <iframe

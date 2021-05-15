@@ -3,7 +3,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1440px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -11,25 +11,26 @@
 }
 
 .glass {
-  background: rgba( 0, 0, 0, 0.75);
-  width: 90%;
-  height: 75%;
+  background: rgba(0, 0, 0, 0.80);
+  width: 80%;
+  /* height: 75%; */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px;
+  padding: 15vh 64px;
   border-radius: 150px;
-  box-shadow: 0px 2px 24px 4px rgb(11, 11, 11);
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  box-shadow: 4px 4px 32px 4px rgb(43, 43, 43, .75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   }
 
 .details {
-  width: 30%;
-  height: 100%;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin-right: 64px;
 }
 
 .poster-title,
@@ -38,19 +39,38 @@
 .release-date,
 .rating,
 .genre {
-  
   color: white;
 }
 
-.rating {
-  font-style: italic;
-  margin-left: 1%;
+.poster-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 1.75em;
+}
+
+.genre,
+.overview {
+  margin-bottom: 16px;
+}
+
+.genre {
+  font-weight: lighter;
+}
+
+.overview {
+  height: 100%;
+  margin-bottom: 1;
+  text-align: justify;
 }
 
 .trailer-container {
-  position: relative;
-  width: 50%;
+  width: 45%;
   height: 0;
+  position: relative;
+  justify-self: flex-end;
+  align-self: flex-start;
   padding-bottom: 33.75%;
   border-radius: 16px;
 }
@@ -76,4 +96,63 @@
   top: 0;
   border: none;
   border-radius: 16px;
+}
+
+.stats {
+  grid-template-columns: 70% 30%;
+  grid-template-rows: repeat(2 auto);
+  display: grid;
+  row-gap: 8px;
+}
+
+.runtime h4,
+.release-date h4,
+.rating p {
+  font-weight: 600;
+}
+
+.runtime p,
+.release-date p,
+.rating p {
+  font-weight: lighter;
+}
+
+.runtime {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.release-date {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.rating {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media only screen and (max-width: 1024px) {
+  .glass {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+
+  .details {
+    width: unset;
+    height: 40%;
+    margin-top: 24px;
+    margin-right: 0;
+  }
+
+  .trailer-container {
+    width: 100%;
+    justify-self: center;
+    align-self: flex-start;
+    padding-bottom: 56.25%;
+  }
 }
