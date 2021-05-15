@@ -24,7 +24,6 @@ class App extends React.Component {
       .catch(() => this.setState({error: 'OOPSYYY!'}))
     apiCalls.fetchVideos(id)
       .then(data => this.setState({video: data}))
-      .then(() => console.log(this.state.video))
       .catch(() => this.setState({error: 'OOPSYYY!'}))
   }
 
