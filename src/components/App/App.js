@@ -23,7 +23,9 @@ class App extends React.Component {
 
   displayPoster = id => {
     apiCalls.fetchAMovie(id)
-      .then(data => this.setState({poster: data.movie}))
+      .then(data => this.setState({
+        poster: cleanApiData.getAMovie(data)
+      }))
       .catch(() => this.setState({error: 'Request failed!'}))
     apiCalls.fetchVideos(id)
       .then(data => {
@@ -45,13 +47,12 @@ class App extends React.Component {
 
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
-      .then(data => {
-        this.setState({movies: cleanApiData.getAllMoives(data)})
-        
-      })
+      .then(data => this.setState({
+        movies: cleanApiData.getAllMovies(data)
+      }))
+      .catch(() => this.setState({error: 'Request failed!!'}))
     
     // .then(data => this.setState({movies: data.movies}))
-    //   .catch(() => this.setState({error: 'Request failed!!'}))
   }
 
   render() {
