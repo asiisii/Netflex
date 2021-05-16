@@ -32,8 +32,8 @@ class App extends React.Component {
         this.setState({
           video: cleanApiData.getVideoInfo(data)
         })
-        this.handleAnimation()
       })
+      .then(() => this.handleAnimation())
       .catch(() => this.setState({error: 'Request failed!'}))
   }
 
