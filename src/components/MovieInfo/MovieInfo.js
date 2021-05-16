@@ -2,6 +2,7 @@ import React from 'react'
 import './MovieInfo.css'
 
 function getVideoKey(videoInfo) {
+  // console.log(videoInfo);
   if (videoInfo.length) {
     const getVideo = videoInfo.find(video => video.type === 'Trailer')
     const key = getVideo.key
@@ -27,51 +28,53 @@ function getVideoKey(videoInfo) {
 }
 
 export default function MovieInfo(props) {
-  let hr = parseInt(props.poster.runtime / 60)
-  let m = props.poster.runtime % 60
-  m = m < 10 ? '0' + m : m
-  let date = props.poster.release_date.split('-')
-  let yyyy = date[0]
-  let mm = date[1]
-  let dd = date[2]
-  date = `${mm}/${dd}/${yyyy}`
-  let genres =  props.poster.genres.join(' | ')
-  let rating = props.poster.average_rating.toFixed(1)
+  // let hr = parseInt(props.poster.runtime / 60)
+  // let m = props.poster.runtime % 60
+  // m = m < 10 ? '0' + m : m
+  // let date = props.poster.release_date.split('-')
+  // let yyyy = date[0]
+  // let mm = date[1]
+  // let dd = date[2]
+  // date = `${mm}/${dd}/${yyyy}`
+  // let genres =  props.poster.genres.join(' | ')
+  // let rating = props.poster.average_rating.toFixed(1)
+  // console.log(props);
+  // console.log(props.poster.title, props.poster.avgRating, props.poster.genres, props.poster.overview, props.poster.hr, props.poster.mins, props.poster.releaseDate);
   return (
     <section className="poster-section"
       style={{
-        backgroundImage: `url(${props.poster.backdrop_path})`
+        backgroundImage: `url(${props.poster.backgroundImg})`
       }}
     >
       <article className="glass"> 
         <div className='details'>
-          {(!props.poster.title || !rating || !genres || !props.poster.overview
-          || !hr || !m || !date) && 
+          {(!props.poster.title || !props.poster.avgRating || !props.poster.genres || !props.poster.overview
+          || !props.poster.hr || !props.poster.mins || !props.poster.releaseDate) && 
           <h1 className="poster-title"> 
             No Information Available 
           </h1>
           }
 
-          {props.poster.title && rating && genres && props.poster.overview
-            && hr && m && date && 
+          {props.poster.title && props.poster.avgRating && props.poster.genres && props.poster.overview
+          && props.poster.hr && props.poster.mins && props.poster.releaseDate &&
             <>
               <h1 className="poster-title"> 
                 {props.poster.title} 
               </h1>
-              <p className="genre">{genres}</p>
+              <p className="genre">{props.poster.genres}</p>
               <p className="overview">{props.poster.overview} </p>
               <div className="stats">
                 <span className='runtime'>
                   <h4>Runtime</h4>
-                  <p>{hr}hrs {m}mins</p> 
+                  <p>{props.poster.hr}hrs {props.poster.mins}mins</p> 
                 </span>
                 <span className="release-date">
                   <h4>Release date</h4>
-                  <p>{date}</p>
+                  <p>{props.poster.releaseDate}</p>
                 </span>
                 <span className="rating">
                   <h4>Rating</h4>
-                  <p>{rating}/10</p>
+                  <p>{props.poster.avgRating}/10</p>
                 </span> 
               </div> 
             </>
