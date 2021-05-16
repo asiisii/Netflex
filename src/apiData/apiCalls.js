@@ -1,4 +1,4 @@
-const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
+const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/'
 const apiCalls = {
   fetchAllMovies: async () => {
     const response = await fetch(`${baseURL}`)
@@ -13,6 +13,10 @@ const apiCalls = {
   fetchVideos: async id => {
     const response = await fetch(`${baseURL}/${id}/videos`)
      return await apiCalls.checkForError(response)
+  },
+  fetchApiData: async (query) => {
+    const response = await fetch(`${baseURL}${query}`)
+    return await apiCalls.checkForError(response)
   },
 
   checkForError: response => {
