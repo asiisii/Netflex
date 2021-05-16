@@ -25,13 +25,31 @@ const cleanApiData = {
     return {
       id: movieInfo.id,
       title: movieInfo.title,
-      backgroundImg: movieInfo.backdrop_path,
-      releaseDate: date,
-      overview: movieInfo.overview,
       genres: genres,
+      overview: movieInfo.overview,
+      backgroundImg: movieInfo.backdrop_path,
       hr: hr,
       mins: m,
+      releaseDate: date,
       avgRating: rating
+    }
+  },
+
+  getVideoInfo: (data) => {
+    if (data.videos.length) {
+      const getVideo = data.videos.find(video => video.type === 'Trailer')
+      const key = getVideo.key
+      return {
+        hasLink: true,
+        videoLink: `https://www.youtube.com/embed/${key}`
+      }
+ 
+    } else {
+      return {
+        hasLink: false,
+        videoLink: `https://i.insider.com/5b0d4c731ae6622f008b4f81?`
+      }
+   
     }
   }
 } 
