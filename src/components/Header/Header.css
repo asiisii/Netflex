@@ -1,5 +1,6 @@
 header {
   background-color: white;
+  width: 100%;
   height: 3.5em;
   position: sticky;
   top: 0;
@@ -14,4 +15,10 @@ header {
 
 header input {
   margin-right: 16px;
+}
+
+@media only screen and (max-width: 1600px) {
+  header {
+    border-radius: unset;
+  }
 }

@@ -44,7 +44,6 @@ export default function MovieInfo(props) {
       }}
     >
       <article className="glass"> 
-        <button className='close-info-btn' onClick={props.handleClick}>Go back</button>
         <div className='details'>
           {(!props.poster.title || !rating || !genres || !props.poster.overview
           || !hr || !m || !date) && 
@@ -53,39 +52,38 @@ export default function MovieInfo(props) {
           </h1>
           }
 
-        {props.poster.title && rating && genres && props.poster.overview
-          && hr && m && date && 
-          <>
-            <h1 className="poster-title"> 
-              {props.poster.title} 
-            </h1>
-            <p className="genre">{genres}</p>
-            <p className="overview">{props.poster.overview} </p>
-            <div className="stats">
-              <span className='runtime'>
-                <h4>Runtime</h4>
-                <p>{hr}hrs {m}mins</p> 
-              </span>
-              <span className="release-date">
-                <h4>Release date</h4>
-                <p>{date}</p>
-              </span>
-              <span className="rating">
-                <h4>Rating</h4>
-                <p>{rating}/10</p>
-              </span> 
-            </div> 
-          </>
-        }
+          {props.poster.title && rating && genres && props.poster.overview
+            && hr && m && date && 
+            <>
+              <h1 className="poster-title"> 
+                {props.poster.title} 
+              </h1>
+              <p className="genre">{genres}</p>
+              <p className="overview">{props.poster.overview} </p>
+              <div className="stats">
+                <span className='runtime'>
+                  <h4>Runtime</h4>
+                  <p>{hr}hrs {m}mins</p> 
+                </span>
+                <span className="release-date">
+                  <h4>Release date</h4>
+                  <p>{date}</p>
+                </span>
+                <span className="rating">
+                  <h4>Rating</h4>
+                  <p>{rating}/10</p>
+                </span> 
+              </div> 
+            </>
+          }
         </div>
-        
+        <footer className='mobile-btm-menu'>
+          <button className='mobile-close-info-btn' onClick={props.handleClick}>Go back</button>
+        </footer>
         {!props.videoKey.videos && <h2>💪Loading Your Movie Info💪</h2>}
         {props.videoKey.videos &&
           getVideoKey(props.videoKey.videos)}
       </article>
-      <footer className='mobile-btm-menu'>
-        <button className='mobile-close-info-btn' onClick={props.handleClick}>Go back</button>
-      </footer>
     </section>
   )
 }

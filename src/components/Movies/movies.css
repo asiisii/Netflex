@@ -5,8 +5,6 @@
   justify-content: center;
   align-items: center;
   padding: 24px;
-  /* border-top-left-radius: 12px;
-  border-top-right-radius: 12px; */
   box-shadow: 0px -1px 8px rgba(160, 160, 160, 0.75);
   z-index: 9998;
 }
@@ -26,6 +24,12 @@
   column-gap: 24px;
   row-gap: 24px;
   justify-content: center;
+}
+
+@media only screen and (max-width: 1600px) {
+  .movie-catalogue {
+    border-radius: unset;
+  }
 }
 
 @media only screen and (max-width: 1440px) {
