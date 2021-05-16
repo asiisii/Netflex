@@ -4,7 +4,8 @@ import Preview from '../Preview/Preview'
 import Movies from '../Movies/Movies'
 import MovieInfo from '../MovieInfo/MovieInfo'
 
-import apiCalls from '../../apiCalls'
+import apiCalls from '../../apiData/apiCalls'
+import cleanApiData from '../../apiData/utilities'
 import './App.css'
 import { gsap, Back } from 'gsap'
 class App extends React.Component {
@@ -44,8 +45,13 @@ class App extends React.Component {
 
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
-      .then(data => this.setState({movies: data.movies}))
-      .catch(() => this.setState({error: 'Request failed!!'}))
+      .then(data => {
+        this.setState({movies: cleanApiData.getAllMoives(data)})
+        
+      })
+    
+    // .then(data => this.setState({movies: data.movies}))
+    //   .catch(() => this.setState({error: 'Request failed!!'}))
   }
 
   render() {
