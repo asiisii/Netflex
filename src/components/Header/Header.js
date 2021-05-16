@@ -11,7 +11,7 @@ export default function Header() {
         className='movie-search-field' 
         type='search'
         name='search'
-        placeholder='Maybe Antebellum?'
+        placeholder='Title search'
       />
       <button className='user-menu-btn'><img src={userIcon} alt='user icon' /></button>
     </header>

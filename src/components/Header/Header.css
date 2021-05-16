@@ -1,39 +1,39 @@
 header {
-  background: rgb(20, 20, 20);
-  background: linear-gradient(90deg, rgba(35, 35, 35, 1) 0%, rgba(55, 55, 55, 1) 100%);
+  /* background: rgb(30, 30, 30);
+  background: linear-gradient(to bottom, rgba(20, 20, 20, 1) 0%, rgba(40, 40, 40, 1) 100%); */
+  background: radial-gradient(rgba(20, 20, 20, 1), rgba(40, 40, 40, 1));
   width: 100%;
-  height: 4.5em;
+  height: 4.75em;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.50);
+  padding: 0 60px;
   z-index: 9999;
 }
 
 .movie-search-field {
-  /* background: linear-gradient(90deg, rgba(35, 35, 35, .50) 0%, rgba(55, 55, 55, 1) 100%); */
-  /* background: rgb(120, 120, 120);
-  background: linear-gradient(270deg, rgba(130, 130, 130,1) 0%, rgba(175, 175, 175, 1) 100%); */
   width: 33.33%;
-  height: 44px;
+  max-width: 460px;
+  height: 40px;
   padding-left: 16px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   background: #d6d6d6;
-  box-shadow: inset -5px 5px 10px #909090,
-  inset 5px -5px 10px #ffffff;
-  /* box-shadow: inset 0 0 6px rgb(58, 58, 58); */
+}
+
+.movie-search-field::placeholder {
+  font-size: 1.25em;
+  font-weight: 400;
+  color:rgb(101, 101, 101);
 }
 
 .app-logo {
-  font-size: 1.5em;
-  font-weight: lighter;
+  font-size: 1.75em;
+  font-family: 'Julius Sans One', sans-serif;
   color: white;
 }
 
