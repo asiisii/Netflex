@@ -1,23 +1,21 @@
 import React from 'react'
 import './MovieInfo.css'
 
-export default function MovieInfo(props) {
-  const movie = props.poster
+export default function MovieInfo({movie, videoKey, handleClick}) {
   return (
     <section className="poster-section"
-      style={{
-        backgroundImage: `url(${movie.backgroundImg})`
-      }}
+      style={
+        { backgroundImage: `url(${movie.backgroundImg})` }
+      }
     >
       <article className="glass"> 
         <div className='details'>
           {(!movie.title || !movie.avgRating || !movie.genres || !movie.overview
           || !movie.hr || !movie.mins || !movie.releaseDate) && 
           <h1 className="poster-title"> 
-            No Information Available 
+            No Information Available. <br/>BLAME COVID-19  
           </h1>
           }
-
           {movie.title && movie.avgRating && movie.genres && movie.overview
           && movie.hr && movie.mins && movie.releaseDate &&
             <>
@@ -44,30 +42,26 @@ export default function MovieInfo(props) {
           }
         </div>
         <footer className='mobile-btm-menu'>
-          <button className='mobile-close-info-btn' onClick={props.handleClick}>Go back</button>
+          <button className='mobile-close-info-btn' onClick={handleClick}>Go back</button>
         </footer>
-        {!props.videoKey.hasLink && 
+        {!videoKey.hasLink && 
           <div className='trailer-container'> 
           <img
            className='trailer'
            title="YouTube video player"
-           src={props.videoKey.videoLink}
-           alt="video unaviable logo"
-           > 
-           
+           src={videoKey.videoLink}
+           alt="video unaviable logo"> 
          </img> 
        </div>
         }
-        {props.videoKey.hasLink &&
+        {videoKey.hasLink &&
           <div className='trailer-container'> 
-               <iframe
-                className='trailer'
-                title="YouTube video player"
-                src={props.videoKey.videoLink}
-                > 
-                
-              </iframe> 
-            </div>  
+            <iframe
+              className='trailer'
+              title="YouTube video player"
+              src={videoKey.videoLink}>  
+            </iframe> 
+          </div>  
         }
       </article>
     </section>

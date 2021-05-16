@@ -1,5 +1,3 @@
-// import apiCalls from './apiCalls'
-
 const cleanApiData = {
   getAllMovies: (data) => {
     return data.movies.map(movie => {
@@ -43,7 +41,7 @@ const cleanApiData = {
         hasLink: true,
         videoLink: `https://www.youtube.com/embed/${key}`
       }
- 
+
     } else {
       return {
         hasLink: false,
@@ -53,8 +51,6 @@ const cleanApiData = {
     }
   }
 } 
-
-
 
 export default cleanApiData;
 
