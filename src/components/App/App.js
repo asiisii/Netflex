@@ -29,7 +29,9 @@ class App extends React.Component {
       .catch(() => this.setState({error: 'Request failed!'}))
     apiCalls.fetchVideos(id)
       .then(data => {
-        this.setState({video: data})
+        this.setState({
+          video: cleanApiData.getVideoInfo(data)
+        })
         this.handleAnimation()
       })
       .catch(() => this.setState({error: 'Request failed!'}))
