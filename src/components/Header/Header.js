@@ -7,10 +7,11 @@ export default function Header() {
   return (
     <header>
       <h3 className='app-logo'>Netflex</h3>
-      <input 
+      <input
+        className='movie-search-field' 
         type='search'
         name='search'
-        placeholder='Movie title'
+        placeholder='Maybe Antebellum?'
       />
       <button className='user-menu-btn'><img src={userIcon} alt='user icon' /></button>
     </header>
