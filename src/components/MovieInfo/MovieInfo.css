@@ -13,7 +13,7 @@
 }
 
 .glass {
-  background: rgba(0, 0, 0, 0.80);
+  background: rgba(0, 0, 0, 0.85);
   width: 75%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -147,7 +147,8 @@
   background-color: transparent;
   border: none;
   font-size: 1.5em;
-  color: rgba(255, 255, 255, .90);
+  font-weight: lighter;
+  color: rgba(255, 255, 255);
   transition: background .25s;
   cursor: pointer;
 }
@@ -216,16 +217,11 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .poster-section {
-    display: grid;
-    grid-template-rows: auto 3.5em;
-  }
-
   .glass {
+    background: rgba(0, 0, 0, 0.95);
     width: 100%;
     height: 100%;
-    grid-row: 1;
-    justify-content: flex-end;
+    grid-template-rows: max-content auto 3.5em;
     padding: 0;
     border-radius: unset;
     box-shadow: unset;
@@ -233,8 +229,9 @@
     -webkit-backdrop-filter: blur(12px);
   }
 
-  .close-info-btn {
-    display: none;
+  .trailer-container {
+    width: 100%;
+    padding-bottom: 56.25%;
   }
 
   .trailer {
@@ -242,22 +239,27 @@
   }
 
   .details {
-    height: 100%;
     padding: 0 24px;
   }
 
   .overview {
-    max-height: 80px;
+    /* max-height: 80px;
     overflow: scroll;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;  */
   }
 
   .overview::-webkit-scrollbar {
     display: none;
   }
 
-  .mobile-close-info-btn {
-    display: block;
+  .mobile-btm-menu {
+    align-items: center;
+    padding-top: unset;
+  }
+
+  .mobile-btm-menu:after {
+    left: 16px;
+    right: 16px;
   }
 }
