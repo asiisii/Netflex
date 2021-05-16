@@ -14,14 +14,15 @@
 
 .glass {
   background: rgba(0, 0, 0, 0.80);
-  width: 80%;
+  width: 75%;
+  max-height: 576px;
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: auto 7em;
   column-gap: 32px;
-  row-gap: 32px;
-  padding: 6em 6em 3em 6em;
+  row-gap: 64px;
+  padding: 6em 6em 0 6em;
   border-radius: 150px;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
   backdrop-filter: blur(4px);
@@ -123,18 +124,15 @@
 
 .mobile-btm-menu {
   background: transparent;
-  height: 3em;
+  height: 100%;
   grid-column: 1 / span 2;
   grid-row: 2;
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  grid-row: 2;
-  padding: 0 16px;
-  z-index: 9999;
-  /* backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); */
+  align-items: flex-start;
+  padding-top: 16px;
+  z-index: 1;
 }
 
 .mobile-btm-menu:after {
@@ -147,7 +145,6 @@
   right: 0;
 }
 
-.close-info-btn,
 .mobile-close-info-btn {
   background-color: transparent;
   border: none;
@@ -158,16 +155,8 @@
   cursor: pointer;
 }
 
-.close-info-btn:hover,
 .mobile-close-info-btn:hover {
   color: rgba(255, 255, 255, 0.60);
-}
-
-.close-info-btn {
-  position: absolute;
-  bottom: 48px;
-  right: auto;
-  left: auto;
 }
 
 @media only screen and (max-width: 1024px) {
