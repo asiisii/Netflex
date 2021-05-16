@@ -80,7 +80,7 @@ export default function MovieInfo(props) {
         <footer className='mobile-btm-menu'>
           <button className='mobile-close-info-btn' onClick={props.handleClick}>Go back</button>
         </footer>
-        {!props.videoKey.videos && console.log('error')}
+        {!props.videoKey.videos && <h2>💪Loading Your Movie Info💪</h2>}
         {props.videoKey.videos &&
           getVideoKey(props.videoKey.videos)}
       </article>

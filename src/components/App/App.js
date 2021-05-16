@@ -23,47 +23,30 @@ class App extends React.Component {
   displayPoster = id => {
     apiCalls.fetchAMovie(id)
       .then(data => this.setState({poster: data.movie}))
-      .catch(() => this.setState({error: 'OOPSYYY!'}))
+      .catch(() => this.setState({error: 'Request failed!'}))
     apiCalls.fetchVideos(id)
       .then(data => {
         this.setState({video: data})
         this.handleAnimation()
       })
-      .catch(() => this.setState({error: 'OOPSYYY!'}))
-    
+      .catch(() => this.setState({error: 'Request failed!'}))
   }
 
   handleAnimation = () => {
     this.setState({isActive: false})
-    this.state.effect.from('.poster-section', { ease: Back.easeOut, x: -1990, duration: 2}) 
-    // this.state.effect.to('.home', { ease: Back.easeOut, x: 1990 })
-    // this.state.effect.to('.preview', { ease: Back.easeOut, x: 1990 })
-    // this.state.effect.to('.header', { ease: Back.easeOut, x: 1990 })
-     // this.state.t1.from('.pokemon', { rotation: -360, transformOrigin: "center" });preview
-    // this.setState({
-    //   movies: ''
-    // })
+    this.state.effect.from('.poster-section', { ease: Back.easeOut, x: -1990, duration: 1.5}) 
   }
 
   hidePoster = () => {
     this.setState({isActive: true})
-    this.state.effect.from('.wrapper', { ease: Back.easeOut, x: 2990, duration: 2}) 
-    // this.state.effect.reverse()
-    // this.setState({ 
-    //   poster: '',
-    //   video: '' 
-    // })
+    this.state.effect.from('.wrapper', { ease: Back.easeOut, x: 2990, duration: 1.5}) 
   }
 
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
       .then(data => this.setState({movies: data.movies}))
-      .catch(() => this.setState({error: 'OOPS!'}))
+      .catch(() => this.setState({error: 'Request failed!!'}))
   }
-
-  // clearError = () => {
-  //   return this.state.error ?  this.setState({error: ''}) : true
-  // }
 
   render() {
     return (
@@ -90,7 +73,6 @@ class App extends React.Component {
                     />
                   }   
                 </main>
-
             </>
           }
          </div> 
