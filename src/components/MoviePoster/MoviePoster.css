@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   transition: transform 500ms ease;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -9,11 +10,9 @@
 .movie-poster:hover {
   transform: scale(1.2);
   z-index: 1;
-
 }
 
 .poster-image {
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 1px 1px 8px rgba(140, 140, 140, 0.75);
+  border-radius: 4px;
 }

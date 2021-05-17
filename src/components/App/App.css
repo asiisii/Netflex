@@ -1,3 +1,5 @@
 .app {
-  margin: 0 auto;
+  background: radial-gradient(#2D3D4C, #202126);
+  background-position: center;
+  background-attachment: fixed;
 }
