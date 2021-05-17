@@ -1,8 +1,8 @@
 header {
-  background: radial-gradient(rgba(20, 20, 20, .90), rgba(30, 30, 30, .90));
+  background: radial-gradient(rgba(20, 20, 20), rgba(30, 30, 30));
   width: 100%;
-  height: 4.75em;
-  position: fixed;
+  height: 4.5em;
+  position: sticky;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -10,9 +10,6 @@ header {
   align-items: center;
   padding: 0 60px;
   z-index: 9999;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }
 
 .header-actions {

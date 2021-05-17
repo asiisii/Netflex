@@ -12,7 +12,7 @@ export default function Header() {
           className='movie-search-field'
           type='search'
           name='search'
-          placeholder='What movie are you looking for?'
+          placeholder='What movie were you looking for?'
         />
         <button className='user-menu-btn'><img src={userIcon} alt='user icon' /></button>
       </div>
