@@ -39,6 +39,10 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  .movie-catalogue {
+    padding: 32px;
+  }
+
   .movie-grid {
     grid-template-columns: repeat(3, 1fr);
   }

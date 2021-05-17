@@ -1,5 +1,5 @@
 .preview {
-  background: radial-gradient(#232e3a, #202126);
+  background: linear-gradient(#232e3a, #202126);
   background-position: center;
   background-attachment: fixed;
   width: 100%;
@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
   z-index: 0;
 }
 
