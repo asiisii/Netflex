@@ -1,5 +1,5 @@
 .movie-catalogue {
-  background: radial-gradient(#506c87, #1b1c1f);
+  background-color: transparent;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,8 @@
   width: 100%;
   max-width: 1440px;
   margin-bottom: 16px;
-  font-size: 1.5em;
+  font-size: 1.75em;
+  font-weight: lighter;
 }
 
 .movie-grid {

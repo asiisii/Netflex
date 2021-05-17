@@ -1,3 +1,6 @@
 .app {
+  background: radial-gradient(circle farthest-corner,#61707e, #24262a);
+  background-position: center;
+  background-attachment: fixed;
   margin: 0 auto;
 }
