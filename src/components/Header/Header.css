@@ -1,15 +1,19 @@
 header {
-  background: radial-gradient(rgba(20, 20, 20), rgba(30, 30, 30));
+  /* background: radial-gradient(rgb(35, 35, 35), rgba(30, 30, 30)); */
+  background: rgba(0, 0, 0, .90);
   width: 100%;
   height: 4.5em;
-  position: sticky;
+  position: fixed;
   top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
-  z-index: 9999;
+  padding: 0 32px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);;
+  z-index: 2;
 }
 
 .header-actions {
@@ -27,7 +31,7 @@ header {
   padding-left: 16px;
   font-family: 'Roboto', sans-serif;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   background: #d6d6d6;
 }
 
@@ -40,6 +44,7 @@ header {
 .app-logo {
   font-size: 1.75em;
   font-family: sans-serif;
+  font-weight: 400;
   color: white;
 }
 
