@@ -22,4 +22,13 @@
 //
 //
 // -- This will overwrite an existing command --
+
+
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import allMovies from "../fixtures/allMovies"
+
+const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/'
+Cypress.Commands.add('checkAllMoviesData', () => {
+  cy.intercept(baseURL, { fextures: allMovies })
+    .visit('http://localhost:3000/')
+})
