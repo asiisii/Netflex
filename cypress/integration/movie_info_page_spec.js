@@ -1,24 +1,16 @@
 describe('Movie Info Page', () => {
   beforeEach('access Home Page and stub API calls', () => {
-    cy.fixture('../fixtures/single-movie.json')
-      .then((json) => {
-        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', json)
-      })
-
-    cy.fixture('../fixtures/movie-videos.json')
-      .then((json) => {
-        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401/videos', json)
-      })
-
+    cy.interceptInfoFetches()
     cy.visit('http://localhost:3000/')
-    cy.get('#337401').click();
   })
 
-  it('should render when a user selects a movie from the Home Page', () => {
+  it('should render page when a user selects a movie from the Home Page', () => {
+    cy.get('#337401').click()
     cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this URL will need to change to 'http://localhost:3000/337401'
   })
 
   it('should display the details of the movie selected from the Home Page', () => {
+    cy.get('#337401').click()
     cy.get('.details').get('.poster-title').contains('Mulan')
     cy.get('.details').get('.genre').contains('Action | Adventure | Drama | Fantasy')
 
@@ -33,10 +25,19 @@ describe('Movie Info Page', () => {
   })
 
   it('should display the trailer of the movie selected from the Home Page', () => {
+    cy.get('#337401').click()
     cy.get('.trailer').should('have.attr', 'src', 'https://www.youtube.com/embed/KK8FHdFluOQ')
   })
 
+  it('should inform the user if no information was found', () => {
+    cy.get('#737173').click()
+
+    cy.get('.details').get('.poster-title').contains('No Information Available.');
+    cy.get('.trailer').should('have.attr', 'src', 'https://i.insider.com/5b0d4c731ae6622f008b4f81?')
+  })
+
   it('should return the user to the Home Page when the "Go back" button is selected', () => {
+    cy.get('#337401').click()
     cy.get('.close-info-btn').click()
     cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this test will actually be valid
   })
