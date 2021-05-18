@@ -41,8 +41,8 @@ export default function MovieInfo({movie, videoKey, handleClick}) {
             </>
           }
         </div>
-        <footer className='mobile-btm-menu'>
-          <button className='mobile-close-info-btn' onClick={handleClick}>Go back</button>
+        <footer className='btm-menu'>
+          <button className='close-info-btn' onClick={handleClick}>Go back</button>
         </footer>
         {!videoKey.hasLink && 
           <div className='trailer-container'> 
