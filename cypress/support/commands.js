@@ -27,8 +27,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import allMovies from "../fixtures/allMovies"
 
-const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/'
+const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
 Cypress.Commands.add('checkAllMoviesData', () => {
-  cy.intercept(baseURL, { fextures: allMovies })
+  cy.intercept(baseURL, allMovies )
     .visit('http://localhost:3000/')
 })

@@ -77,7 +77,9 @@ class App extends React.Component {
                   <Preview className="preview" />
                   {this.state.error && <h2>{this.state.error}</h2>}
                   {!this.state.error && !this.state.movies.length && 
-                  <h2>💪Loading Your Movies💪</h2>}
+                  <h2 className="loading">
+                    💪Loading Your Movies💪
+                  </h2>}
                   {this.state.movies.length && !this.state.error &&
                     <Movies 
                       movies={this.state.movies} 
