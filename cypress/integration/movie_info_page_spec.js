@@ -1,27 +1,24 @@
 describe('Movie Info Page', () => {
   beforeEach('access Home Page and stub API calls', () => {
-    cy.visit('http://localhost:3000/')
-
     cy.fixture('../fixtures/single-movie.json')
       .then((json) => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', json)
       })
 
-    cy.fixture('../fixtures/movie-trailer.json')
+    cy.fixture('../fixtures/movie-videos.json')
       .then((json) => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401/videos', json)
       })
+
+    cy.visit('http://localhost:3000/')
+    cy.get('#337401').click();
   })
 
   it('should render when a user selects a movie from the Home Page', () => {
-    cy.get('#337401')
-      .click()
-      .url().should('eq', 'http://localhost:3000/') // Once we start using Router, this URL will need to change to 'http://localhost:3000/337401'
+    cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this URL will need to change to 'http://localhost:3000/337401'
   })
 
   it('should display the details of the movie selected from the Home Page', () => {
-    cy.get('#337401').click()
-
     cy.get('.details').get('.poster-title').contains('Mulan')
     cy.get('.details').get('.genre').contains('Action | Adventure | Drama | Fantasy')
 
@@ -35,8 +32,12 @@ describe('Movie Info Page', () => {
     cy.get('.details').get('.rating').contains('5.1/10')
   })
 
-  it('should display the trailer of the movie selected from the Home Page,', () => {
-    cy.get('#337401').click()
-      .get('.trailer').should('have.attr', 'src', json.movie.)
+  it('should display the trailer of the movie selected from the Home Page', () => {
+    cy.get('.trailer').should('have.attr', 'src', 'https://www.youtube.com/embed/KK8FHdFluOQ')
+  })
+
+  it('should return the user to the Home Page when the "Go back" button is selected', () => {
+    cy.get('.close-info-btn').click()
+    cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this test will actually be valid
   })
 })
