@@ -5,8 +5,6 @@ import apiCalls from '../../apiData/apiCalls'
 import cleanApiData from '../../apiData/utilities'
 import './MovieInfo.css'
 
-// {movie, videoKey, handleClick}
-
 export default class MovieInfo extends React.Component {
   constructor(props) {
     super(props);

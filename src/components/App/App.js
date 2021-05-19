@@ -14,41 +14,16 @@ class App extends React.Component {
     super()
     this.state = {
       movies: '',
-      // movie: '',
-      // video: '',
       error: '',
       effect: gsap.timeline(),
-      isActive: true
     }
   }
 
-  // displayAMovie = id => {
-  //   const movie = `movies/${id}`
-  //   const video = `${movie}/videos`
-  //   apiCalls.fetchApiData(movie)
-  //     .then(data => this.setState({
-  //       movie: cleanApiData.getAMovie(data)
-  //     }))
-  //     .catch(() => this.setState({error: 'Request failed!'}))
-  //   apiCalls.fetchApiData(video)
-  //     .then(data => {
-  //       this.setState({
-  //         video: cleanApiData.getVideoInfo(data)
-  //       })
-  //     })
-  //     .then(() => this.handleAnimation())
-  //     .catch(() => this.setState({error: 'Request failed!'}))
+  // handleAnimation = () => {
+  //   this.setState({isActive: false})
+  //   this.state.effect.from('.poster-section', 
+  //   { ease: Back.easeOut, x: -1990, duration: 1.5})
   // }
-
-  handleAnimation = () => {
-    this.setState({isActive: false})
-    this.state.effect.from('.poster-section', 
-    { ease: Back.easeOut, x: -1990, duration: 1.5}) 
-    // gsap.timeline().from(
-    //   '.poster-section',
-    //   { ease: Back.easeOut, x: -1990, duration: 1.5 } 
-    // )
-  }
 
   hidemovie = () => {
     this.setState({isActive: true})
@@ -70,16 +45,11 @@ class App extends React.Component {
         <Route
           exact path='/movies/:id'
           render={({ match }) => {
-            // {this.state.movie && !this.state.isActive &&
             return (
               <MovieInfo 
-                // movie={this.state.movie} 
-                // videoKey={this.state.video}
-                // handleClick={this.hidemovie}
                 id={match.params.id}
               />
             ) 
-            // } 
           }}
         />
         <Route
@@ -87,25 +57,21 @@ class App extends React.Component {
           render={() => {
             return (
               <div className="wrapper">
-                {this.state.isActive &&
-                  <>
-                    <Header />
-                    <main className="home">
-                      <Preview className="preview" />
-                      {this.state.error && <h2>{this.state.error}</h2>}
-                      {!this.state.error && !this.state.movies.length && 
-                      <h2 className="loading">
-                        💪Loading Your Movies💪
-                      </h2>}
-                      {this.state.movies.length && !this.state.error &&
-                        <Movies 
-                          movies={this.state.movies} 
-                          display={this.displayAMovie}
-                        />
-                      }   
-                    </main>
-                  </>
-                }
+                <Header />
+                <main className="home">
+                  <Preview className="preview" />
+                  {this.state.error && <h2>{this.state.error}</h2>}
+                  {!this.state.error && !this.state.movies.length && 
+                  <h2 className="loading">
+                    💪Loading Your Movies💪
+                  </h2>}
+                  {this.state.movies.length && !this.state.error &&
+                    <Movies 
+                      movies={this.state.movies} 
+                      display={this.displayAMovie}
+                    />
+                  }   
+                </main>
               </div> 
             )
           }}
