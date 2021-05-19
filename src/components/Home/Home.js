@@ -12,18 +12,38 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       movies: '',
+      filteredMovies: [],
       error: '',
       effect: gsap.timeline()
     }
   }
 
+  filterMovies = (e) => {
+    this.setState({ error: '' })
+    
+    let filteredMovies;
+    const query = e.target.value.toLowerCase();
+
+    if (query) {
+      filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
+
+      if (!filteredMovies.length) {
+        this.setState({ error: 'No movies found.'})
+      } 
+    } else {
+      filteredMovies = [];
+    }
+    
+    this.setState({ filteredMovies })
+  }
+  
   hidemovie = () => {
     this.state.effect.from('.home', 
     { ease: Back.easeOut, x: 2990, duration: 1.5}) 
   }
 
   componentDidMount = () => {
-    this.hidemovie();
+    // this.hidemovie();
 
     apiCalls.fetchApiData('movies')
       .then(data => this.setState({
@@ -35,9 +55,9 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <Header />
+        <Header handleChange={this.filterMovies}/>
         <main>
-          <Preview className="preview" />
+          {!this.state.filteredMovies.length && <Preview className="preview" />}
           {this.state.error && <h2>{this.state.error}</h2>}
           {!this.state.error && !this.state.movies.length && 
           <h2 className="loading">
@@ -45,7 +65,7 @@ export default class Home extends React.Component {
           </h2>}
           {this.state.movies.length && !this.state.error &&
             <Movies 
-              movies={this.state.movies} 
+              movies={this.state.filteredMovies.length ? this.state.filteredMovies : this.state.movies} 
               display={this.displayAMovie}
             />
           }   
