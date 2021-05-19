@@ -14,36 +14,40 @@ class App extends React.Component {
     super()
     this.state = {
       movies: '',
-      movie: '',
-      video: '',
+      // movie: '',
+      // video: '',
       error: '',
       effect: gsap.timeline(),
       isActive: true
     }
   }
 
-  displayAMovie = id => {
-    const movie = `movies/${id}`
-    const video = `${movie}/videos`
-    apiCalls.fetchApiData(movie)
-      .then(data => this.setState({
-        movie: cleanApiData.getAMovie(data)
-      }))
-      .catch(() => this.setState({error: 'Request failed!'}))
-    apiCalls.fetchApiData(video)
-      .then(data => {
-        this.setState({
-          video: cleanApiData.getVideoInfo(data)
-        })
-      })
-      .then(() => this.handleAnimation())
-      .catch(() => this.setState({error: 'Request failed!'}))
-  }
+  // displayAMovie = id => {
+  //   const movie = `movies/${id}`
+  //   const video = `${movie}/videos`
+  //   apiCalls.fetchApiData(movie)
+  //     .then(data => this.setState({
+  //       movie: cleanApiData.getAMovie(data)
+  //     }))
+  //     .catch(() => this.setState({error: 'Request failed!'}))
+  //   apiCalls.fetchApiData(video)
+  //     .then(data => {
+  //       this.setState({
+  //         video: cleanApiData.getVideoInfo(data)
+  //       })
+  //     })
+  //     .then(() => this.handleAnimation())
+  //     .catch(() => this.setState({error: 'Request failed!'}))
+  // }
 
   handleAnimation = () => {
     this.setState({isActive: false})
     this.state.effect.from('.poster-section', 
     { ease: Back.easeOut, x: -1990, duration: 1.5}) 
+    // gsap.timeline().from(
+    //   '.poster-section',
+    //   { ease: Back.easeOut, x: -1990, duration: 1.5 } 
+    // )
   }
 
   hidemovie = () => {
@@ -65,13 +69,14 @@ class App extends React.Component {
       <div className="app">
         <Route
           exact path='/movies/:id'
-          render={() => {
+          render={({ match }) => {
             // {this.state.movie && !this.state.isActive &&
-            return (  
+            return (
               <MovieInfo 
-                movie={this.state.movie} 
-                videoKey={this.state.video}
-                handleClick={this.hidemovie}
+                // movie={this.state.movie} 
+                // videoKey={this.state.video}
+                // handleClick={this.hidemovie}
+                id={match.params.id}
               />
             ) 
             // } 
