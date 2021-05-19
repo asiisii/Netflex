@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { gsap, Back } from 'gsap'
 
 import apiCalls from '../../apiData/apiCalls'
@@ -49,72 +50,82 @@ export default class MovieInfo extends React.Component {
 
   render() {
     return (
-      <section className="poster-section"
-        style={
-          { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
+      <>
+        {!this.state.movieDetails && 
+          <article className="glass">
+            💪Loading Your Movies💪
+          </article>
         }
-      >
-        <article className="glass"> 
-          <div className='details'>
-            {(!this.state.movieDetails.title || !this.state.movieDetails.avgRating || !this.state.movieDetails.genres || !this.state.movieDetails.overview
-            || !this.state.movieDetails.hr || !this.state.movieDetails.mins || !this.state.movieDetails.releaseDate) && 
-            <h1 className="poster-title"> 
-              No Information Available. <br/>BLAME COVID-19  
-            </h1>
+        {this.state.movieDetails && this.state.video &&
+          <section className="poster-section"
+            style={
+              { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
             }
-            {this.state.movieDetails.title && this.state.movieDetails.avgRating && this.state.movieDetails.genres && this.state.movieDetails.overview
-            && this.state.movieDetails.hr && this.state.movieDetails.mins && this.state.movieDetails.releaseDate &&
-              <>
+          >
+            
+            <article className="glass"> 
+              <div className='details'>
+                {(!this.state.movieDetails.title || !this.state.movieDetails.avgRating || !this.state.movieDetails.genres || !this.state.movieDetails.overview
+                || !this.state.movieDetails.hr || !this.state.movieDetails.mins || !this.state.movieDetails.releaseDate) && 
                 <h1 className="poster-title"> 
-                  {this.state.movieDetails.title} 
+                  No Information Available. <br/>BLAME COVID-19  
                 </h1>
-                <p className="genre">{this.state.movieDetails.genres}</p>
-                <p className="overview">{this.state.movieDetails.overview} </p>
-                <div className="stats">
-                  <span className='runtime'>
-                    <h4>Runtime</h4>
-                    <p>{this.state.movieDetails.hr}hrs {this.state.movieDetails.mins}mins</p> 
-                  </span>
-                  <span className="release-date">
-                    <h4>Release date</h4>
-                    <p>{this.state.movieDetails.releaseDate}</p>
-                  </span>
-                  <span className="rating">
-                    <h4>Rating</h4>
-                    <p>{this.state.movieDetails.avgRating}/10</p>
-                  </span> 
-                </div> 
-              </>
-            }
-          </div>
-          <footer className='btm-menu'>
-            <button 
-              className='close-info-btn' 
-              // onClick={handleClick}
-            >Go back
-            </button>
-          </footer>
-          {!this.state.video.hasLink && 
-            <div className='trailer-container'> 
-            <img
-             className='trailer'
-             title="YouTube video player"
-             src={this.state.video.videoLink}
-             alt="video unaviable logo"> 
-           </img> 
-         </div>
-          }
-          {this.state.video.hasLink &&
-            <div className='trailer-container'> 
-              <iframe
-                className='trailer'
-                title="YouTube video player"
-                src={this.state.video.videoLink}>  
-              </iframe> 
-            </div>  
-          }
-        </article>
-      </section>
+                }
+                {this.state.movieDetails.title && this.state.movieDetails.avgRating && this.state.movieDetails.genres && this.state.movieDetails.overview
+                && this.state.movieDetails.hr && this.state.movieDetails.mins && this.state.movieDetails.releaseDate &&
+                  <>
+                    <h1 className="poster-title"> 
+                      {this.state.movieDetails.title} 
+                    </h1>
+                    <p className="genre">{this.state.movieDetails.genres}</p>
+                    <p className="overview">{this.state.movieDetails.overview} </p>
+                    <div className="stats">
+                      <span className='runtime'>
+                        <h4>Runtime</h4>
+                        <p>{this.state.movieDetails.hr}hrs {this.state.movieDetails.mins}mins</p> 
+                      </span>
+                      <span className="release-date">
+                        <h4>Release date</h4>
+                        <p>{this.state.movieDetails.releaseDate}</p>
+                      </span>
+                      <span className="rating">
+                        <h4>Rating</h4>
+                        <p>{this.state.movieDetails.avgRating}/10</p>
+                      </span> 
+                    </div> 
+                  </>
+                }
+              </div>
+              <footer className='btm-menu'>
+                <NavLink 
+                  to='/'
+                  className='close-info-btn'
+                >Go back
+                </NavLink>
+              </footer>
+              {!this.state.video.hasLink && 
+                <div className='trailer-container'> 
+                <img
+                  className='trailer'
+                  title="YouTube video player"
+                  src={this.state.video.videoLink}
+                  alt="video unaviable logo"> 
+                </img> 
+              </div>
+              }
+              {this.state.video.hasLink &&
+                <div className='trailer-container'> 
+                  <iframe
+                    className='trailer'
+                    title="YouTube video player"
+                    src={this.state.video.videoLink}>  
+                  </iframe> 
+                </div>  
+              }
+            </article>
+          </section>
+        }
+      </>
     )
   }
 }
