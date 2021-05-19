@@ -91,6 +91,6 @@ header {
   }
   
   .movie-search-field {
-    display: none;
+    /* display: none; */
   }
 }

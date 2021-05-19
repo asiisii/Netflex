@@ -10,7 +10,7 @@ export default class Header extends React.Component {
     super()
     this.state = {
       mobileSearchOpen: false,
-      width: null
+      width: window.innerWidth
     }
   }
 
@@ -25,10 +25,7 @@ export default class Header extends React.Component {
       width: window.innerWidth
     })
 
-    // console.log(this.state.width);
-
     if (this.state.width > 576 && this.state.mobileSearchOpen) {
-      console.log('here')
       this.setState({
         mobileSearchOpen: false
       })
@@ -45,21 +42,25 @@ export default class Header extends React.Component {
       <header>
         {!this.state.mobileSearchOpen && <h3 className='app-logo'>Netflex</h3>}
         <div className='header-actions'>
-          <input 
-            className='movie-search-field'
-            type='search'
-            name='search'
-            placeholder='What movie were you looking for?'
-          />
-          <button 
-            className='mobile-search-btn'
-            onClick={this.handleClick}>
-              <img src={searchIcon} alt='search icon' />
-          </button>
-          {!this.state.mobileSearchOpen ? 
-            <button className='user-menu-btn'>
-              <img src={userIcon} alt='user icon' />
-            </button> :
+          {(this.state.mobileSearchOpen || this.state.width >= 576) &&
+            <input 
+              className='movie-search-field'
+              type='search'
+              name='search'
+              placeholder='What movie were you looking for?'
+            />
+          }
+          {!this.state.mobileSearchOpen ?
+            <>
+              <button 
+              className='mobile-search-btn'
+              onClick={this.handleClick}>
+                <img src={searchIcon} alt='search icon' />
+              </button> 
+              <button className='user-menu-btn'>
+                <img src={userIcon} alt='user icon' />
+              </button>  
+            </> :
             <button>
               <img src={backIcon} alt='back icon'/>
             </button>
