@@ -50,26 +50,27 @@ header {
   color:rgb(132, 132, 132);
 }
 
-.mobile-search-btn {
-  background-color: transparent;
-  height: 100%;
-  display: none;
-  margin-right: 16px;
-  border: none;
-}
-
-.mobile-search-btn > img {
-  height: 100%;
-}
-
+.mobile-search-btn,
+.close-search-btn,
 .user-menu-btn {
   background-color: transparent;
   height: 100%;
   border: none;
 }
 
+.mobile-search-btn > img,
+.close-search-btn > img,
 .user-menu-btn > img {
   height: 100%;
+}
+
+.mobile-search-btn {
+  display: none;
+  margin-right: 16px;
+}
+
+.close-search-btn {
+  margin-right: 16px;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -86,11 +87,13 @@ header {
 }
 
 @media only screen and (max-width: 576px) {
+  .movie-search-field {
+    width: 100%;
+    min-width: unset;
+    margin-right: unset;
+  }
+
   .mobile-search-btn {
     display: block;
-  }
-  
-  .movie-search-field {
-    /* display: none; */
   }
 }

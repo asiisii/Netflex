@@ -42,6 +42,11 @@ export default class Header extends React.Component {
       <header>
         {!this.state.mobileSearchOpen && <h3 className='app-logo'>Netflex</h3>}
         <div className='header-actions'>
+          {this.state.mobileSearchOpen && 
+            <button onClick={this.handleClick} className='close-search-btn'>
+              <img src={backIcon} alt='back icon'/>
+            </button>
+          }
           {(this.state.mobileSearchOpen || this.state.width >= 576) &&
             <input 
               className='movie-search-field'
@@ -50,7 +55,7 @@ export default class Header extends React.Component {
               placeholder='What movie were you looking for?'
             />
           }
-          {!this.state.mobileSearchOpen ?
+          {!this.state.mobileSearchOpen &&
             <>
               <button 
               className='mobile-search-btn'
@@ -60,10 +65,7 @@ export default class Header extends React.Component {
               <button className='user-menu-btn'>
                 <img src={userIcon} alt='user icon' />
               </button>  
-            </> :
-            <button>
-              <img src={backIcon} alt='back icon'/>
-            </button>
+            </>
           }
         </div>
       </header>

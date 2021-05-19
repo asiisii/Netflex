@@ -72,8 +72,6 @@ class App extends React.Component {
         <div className="wrapper">
           {this.state.isActive &&
             <>
-              <Route render() {
-              }
               <Header />
                 <main className="home">
                   <Preview className="preview" />
