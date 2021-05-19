@@ -64,7 +64,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <Route
-          exact path='/movie/:id'
+          exact path='/movies/:id'
           render={() => {
             // {this.state.movie && !this.state.isActive &&
             return (  
@@ -77,27 +77,34 @@ class App extends React.Component {
             // } 
           }}
         />
-        <div className="wrapper">
-          {this.state.isActive &&
-            <>
-              <Header />
-                <main className="home">
-                  <Preview className="preview" />
-                  {this.state.error && <h2>{this.state.error}</h2>}
-                  {!this.state.error && !this.state.movies.length && 
-                  <h2 className="loading">
-                    💪Loading Your Movies💪
-                  </h2>}
-                  {this.state.movies.length && !this.state.error &&
-                    <Movies 
-                      movies={this.state.movies} 
-                      display={this.displayAMovie}
-                    />
-                  }   
-                </main>
-            </>
-          }
-         </div> 
+        <Route
+          exact path='/'
+          render={() => {
+            return (
+              <div className="wrapper">
+                {this.state.isActive &&
+                  <>
+                    <Header />
+                    <main className="home">
+                      <Preview className="preview" />
+                      {this.state.error && <h2>{this.state.error}</h2>}
+                      {!this.state.error && !this.state.movies.length && 
+                      <h2 className="loading">
+                        💪Loading Your Movies💪
+                      </h2>}
+                      {this.state.movies.length && !this.state.error &&
+                        <Movies 
+                          movies={this.state.movies} 
+                          display={this.displayAMovie}
+                        />
+                      }   
+                    </main>
+                  </>
+                }
+              </div> 
+            )
+          }}
+        />
       </div>
     )
   }
