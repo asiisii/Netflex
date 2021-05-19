@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import { gsap, Back } from 'gsap'
 import Header from '../Header/Header'
 import Movies from '../Movies/Movies'
@@ -62,13 +63,20 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-          {this.state.movie && !this.state.isActive &&
-            <MovieInfo 
-            movie={this.state.movie} 
-            videoKey={this.state.video}
-            handleClick={this.hidemovie}
-            />
-          } 
+        <Route
+          exact path='/movie/:id'
+          render={() => {
+            // {this.state.movie && !this.state.isActive &&
+            return (  
+              <MovieInfo 
+                movie={this.state.movie} 
+                videoKey={this.state.video}
+                handleClick={this.hidemovie}
+              />
+            ) 
+            // } 
+          }}
+        />
         <div className="wrapper">
           {this.state.isActive &&
             <>
