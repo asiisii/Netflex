@@ -20,7 +20,7 @@ export default class Home extends React.Component {
 
   filterMovies = (e) => {
     this.setState({ error: '' })
-    
+
     let filteredMovies;
     const query = e.target.value.toLowerCase();
 
@@ -39,11 +39,11 @@ export default class Home extends React.Component {
   
   hidemovie = () => {
     this.state.effect.from('.home', 
-    { ease: Back.easeOut, x: 2990, duration: 1.5}) 
+    { ease: Back.easeOut, x: 2990, duration: 1.5})
   }
 
   componentDidMount = () => {
-    // this.hidemovie();
+    this.hidemovie();
 
     apiCalls.fetchApiData('movies')
       .then(data => this.setState({
