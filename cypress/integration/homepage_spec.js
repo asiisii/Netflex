@@ -48,6 +48,7 @@ describe('Homepage', () => {
       cy.get('.movie-poster')
       cy.get('.poster-image')
         .eq(0).click()
+        .url().should('not.equal', 'http://localhost:3000/')
         .url().should('equal', 'http://localhost:3000/movies/694919')
     })
 
@@ -57,10 +58,12 @@ describe('Homepage', () => {
         .get('.glass')
         .contains('💪Loading Your Movies💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
+        .url().should('not.equal', 'http://localhost:3000/')
       cy.reload()
         .get('.glass')
         .contains('💪Loading Your Movies💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
+        .url().should('not.equal', 'http://localhost:3000/')
     })
 
   })
