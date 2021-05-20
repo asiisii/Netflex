@@ -37,6 +37,13 @@ describe('Homepage', () => {
       cy.url().should('equal', 'http://localhost:3000/')
     })
 
+    it('should say loading your movies while wating on movie to get displayed', () => {
+      cy.get('.poster-image')
+        .eq(0).click()
+        .get('.glass')
+        .contains('💪Loading Your Movies💪')
+    })
+    
     it('should have link path to specific movie on poster click', () => {
       cy.get('.movie-poster')
       cy.get('.poster-image')
