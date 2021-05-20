@@ -29,10 +29,11 @@ export default class Home extends React.Component {
       .then(data => this.setState({
         movies: cleanApiData.getAllMovies(data)
       }))
-      .catch(() => this.setState({error: 'Request failed!!'}))
+      .catch(() => this.setState({error: 'Sorry! We can\'t find the page you\'re looking for...'}))
   }
 
   render() {
+    console.log(this.state.error);
     return (
       <div className="home">
         <Header />
