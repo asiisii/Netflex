@@ -53,6 +53,7 @@ export default class Header extends React.Component {
               name='search'
               placeholder='What movie were you looking for?'
               onChange={e => this.props.handleChange(e)}
+              onClick={() => window.scrollTo(0, 0)}
             />
           }
           {!this.state.mobileSearchOpen &&
