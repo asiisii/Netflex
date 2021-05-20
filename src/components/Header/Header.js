@@ -6,8 +6,8 @@ import searchIcon from './images/search_icon.svg'
 import backIcon from './images/back_icon.svg'
 
 export default class Header extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       mobileSearchOpen: false,
       width: window.innerWidth
@@ -37,7 +37,6 @@ export default class Header extends React.Component {
   }
 
   render() {
-    console.log(this.state.mobileSearchOpen)
     return (
       <header>
         {!this.state.mobileSearchOpen && <h3 className='app-logo'>Netflex</h3>}
@@ -53,7 +52,7 @@ export default class Header extends React.Component {
               type='search'
               name='search'
               placeholder='What movie were you looking for?'
-              onChange={e => handleChange(e)}
+              onChange={e => this.props.handleChange(e)}
             />
           }
           {!this.state.mobileSearchOpen &&

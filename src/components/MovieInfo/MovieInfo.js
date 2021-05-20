@@ -51,12 +51,12 @@ export default class MovieInfo extends React.Component {
   render() {
     return (
       <>
-        {!this.state.movieDetails && 
+        {/* {!this.state.movieDetails && 
           <article className="glass">
             💪Loading Your Movies💪
           </article>
-        }
-        {this.state.movieDetails && this.state.video &&
+        } */}
+        {/* {this.state.movieDetails && this.state.video && */}
           <section className="poster-section"
             style={
               { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
@@ -124,7 +124,7 @@ export default class MovieInfo extends React.Component {
               }
             </article>
           </section>
-        }
+        {/* } */}
       </>
     )
   }
