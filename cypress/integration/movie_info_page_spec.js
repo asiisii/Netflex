@@ -4,10 +4,10 @@ describe('Movie Info Page', () => {
     cy.visit('http://localhost:3000/')
   })
 
-  it('should render page when a user selects a movie from the Home Page', () => {
-    cy.get('#337401').click()
-    cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this URL will need to change to 'http://localhost:3000/337401'
-  })
+  // it('should render page when a user selects a movie from the Home Page', () => {
+  //   cy.get('#337401').click()
+  //   cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this URL will need to change to 'http://localhost:3000/337401'
+  // })
 
   it('should display the details of the movie selected from the Home Page', () => {
     cy.get('#337401').click()
