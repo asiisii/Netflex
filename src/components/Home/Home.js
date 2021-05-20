@@ -25,7 +25,6 @@ export default class Home extends React.Component {
     const query = e.target.value.toLowerCase();
 
     if (query) {
-
       filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
 
       if (!filteredMovies.length) {
