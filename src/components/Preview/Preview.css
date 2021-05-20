@@ -3,13 +3,22 @@
   background-position: center;
   background-attachment: scroll;
   width: 100%;
-  height: 630px;
+  height: 486px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition-property: height, opacity;
+  transition-duration: .75s;
+  /* transition-timing-function: ease; */
 }
+
+.closed {
+  height: 0px;
+  opacity: 0;
+}
+
 
 .trending-title {
   width: 100%;
@@ -20,6 +29,7 @@
   width: 100%;
   max-width: 1600px;
   height: 100%;
+  /* padding: 3.5em 0 7em 0; */
 }
 
 .top-img {
@@ -53,7 +63,7 @@
 
 @media only screen and (max-width: 1600px) {
   .preview {
-    height: 558px;
+    /* height: 558px; */
     margin: unset;
   }
 
@@ -71,18 +81,18 @@
 
 @media only screen and (max-width: 1200px) {
   .preview {
-    height: 396px;
+    /* height: 396px; */
   }
 }
 
 @media only screen and (max-width: 768px) {
   .preview {
-    height: 315px;
+    /* height: 315px; */
   }
 }
 
 @media only screen and (max-width: 460px) {
   .preview {
-    height: 234px;
+    /* height: 234px; */
   }
 }

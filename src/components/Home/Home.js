@@ -25,6 +25,7 @@ export default class Home extends React.Component {
     const query = e.target.value.toLowerCase();
 
     if (query) {
+
       filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
 
       if (!filteredMovies.length) {
@@ -52,14 +53,16 @@ export default class Home extends React.Component {
         movies: cleanApiData.getAllMovies(data)
       }))
       .catch(() => this.setState({error: 'Request failed!!'}))
+
+    console.log('fetch')
   }
 
   render() {
     return (
       <div className="home">
-        <Header handleChange={this.filterMovies}/>
+        <Header handleChange={this.filterMovies} />
         <main>
-          {!this.state.filteredMovies.length && <Preview className="preview" />}
+          {!this.state.filteredMovies.length ? <Preview /> : <Preview className='closed' />}
           {this.state.error && <h2>{this.state.error}</h2>}
           {!this.state.error && !this.state.movies.length && 
           <h2 className="loading">
@@ -67,6 +70,7 @@ export default class Home extends React.Component {
           </h2>}
           {this.state.movies.length && !this.state.error &&
             <Movies 
+              title={!this.state.filteredMovies.length ? 'All Movies' : 'Search Results'}
               movies={this.state.filteredMovies.length ? this.state.filteredMovies : this.state.movies} 
               display={this.displayAMovie}
             />

@@ -52,8 +52,9 @@ export default class Header extends React.Component {
               type='search'
               name='search'
               placeholder='What movie were you looking for?'
-              onChange={e => this.props.handleChange(e)}
+              autoComplete='off'
               onClick={() => window.scrollTo(0, 0)}
+              onChange={e => this.props.handleChange(e)}
             />
           }
           {!this.state.mobileSearchOpen &&
