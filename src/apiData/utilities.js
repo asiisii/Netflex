@@ -3,6 +3,7 @@ const cleanApiData = {
     return data.movies.map(movie => {
       return {
         id: movie.id,
+        title: movie.title,
         poster: movie.poster_path
       }
     })

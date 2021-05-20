@@ -1,14 +1,5 @@
 .app {
-  height: 100vh;
   background: radial-gradient(#2D3D4C, #202126);
   background-position: center;
   background-attachment: fixed;
-  display: flex;
-
-}
-
-.loading {
-  margin: auto auto;
-  text-align: center;
-  font-size: 72px;
 }
