@@ -26,7 +26,7 @@ export default class MovieInfo extends React.Component {
   
   componentDidMount() {
     this.handleAnimation();
-
+    console.log('animation ');
     const movie = `movies/${this.state.id}`
     const video = `${movie}/videos`
 
@@ -56,13 +56,14 @@ export default class MovieInfo extends React.Component {
             💪Loading Your Movies💪
           </article>
         }
-        {this.state.movieDetails && this.state.video &&
           <section className="poster-section"
             style={
+              // this.state.movieDetails &&
               { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
             }
-          >
+            >
             
+            {this.state.movieDetails && this.state.video &&
             <article className="glass"> 
               <div className='details'>
                 {(!this.state.movieDetails.title || !this.state.movieDetails.avgRating || !this.state.movieDetails.genres || !this.state.movieDetails.overview
@@ -123,8 +124,8 @@ export default class MovieInfo extends React.Component {
                 </div>  
               }
             </article>
-          </section>
         }
+          </section>
       </>
     )
   }
