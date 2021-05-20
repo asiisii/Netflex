@@ -10,7 +10,7 @@ export default function Movies(props) {
         <MoviePoster
           key={movie.id}
           id={movie.id}
-          // title={movie.title}
+          title={movie.title}
           image={movie.poster}
           display={props.display}
         />

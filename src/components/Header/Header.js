@@ -53,6 +53,7 @@ export default class Header extends React.Component {
               type='search'
               name='search'
               placeholder='What movie were you looking for?'
+              onChange={e => handleChange(e)}
             />
           }
           {!this.state.mobileSearchOpen &&
