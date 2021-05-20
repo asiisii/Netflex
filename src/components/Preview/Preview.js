@@ -1,9 +1,9 @@
 import React from 'react'
 import './Preview.css'
 
-export default function Preview() {
+export default function Preview(props) {
   return (
-    <section className="preview">
+    <section className={`preview ${props.className}`}>
       <div className="trending-container">
         <img className="top-img" src="https://observer.case.edu/wp-content/uploads/2020/09/Mulan-900x506.jpg" alt="" />
         <div className="info">

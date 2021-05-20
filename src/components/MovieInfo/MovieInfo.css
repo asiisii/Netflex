@@ -222,6 +222,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .poster-section {
+    min-height: unset;
+  }
   .glass {
     background: rgba(0, 0, 0, 0.95);
     width: 100%;
