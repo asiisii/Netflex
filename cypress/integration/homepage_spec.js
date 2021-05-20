@@ -43,11 +43,23 @@ describe('Homepage', () => {
         .get('.glass')
         .contains('💪Loading Your Movies💪')
     })
-    
+
     it('should have link path to specific movie on poster click', () => {
       cy.get('.movie-poster')
       cy.get('.poster-image')
         .eq(0).click()
+        .url().should('equal', 'http://localhost:3000/movies/694919')
+    })
+
+    it('should still display movie info on refresh', () => {
+      cy.get('.poster-image')
+        .eq(0).click()
+        .get('.glass')
+        .contains('💪Loading Your Movies💪')
+        .url().should('equal', 'http://localhost:3000/movies/694919')
+      cy.reload()
+        .get('.glass')
+        .contains('💪Loading Your Movies💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
     })
 
