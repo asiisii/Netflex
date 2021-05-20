@@ -24,9 +24,12 @@ export default class MovieInfo extends React.Component {
     )
   }
   
+  handleError = (id) => {
+    return id !== this.state.id ? this.setState({error: 'Wrong hood'}) : null
+  }
   componentDidMount() {
     this.handleAnimation();
-
+    console.log('animation ');
     const movie = `movies/${this.state.id}`
     const video = `${movie}/videos`
 
@@ -37,6 +40,7 @@ export default class MovieInfo extends React.Component {
         })
         
       })
+      .then(() => this.handleError(this.state.movieDetails.id))
       .catch(() => this.setState({error: 'Request failed!'}))
 
     apiCalls.fetchApiData(video)
@@ -53,16 +57,17 @@ export default class MovieInfo extends React.Component {
       <>
         {!this.state.movieDetails && 
           <article className="glass">
-            💪Loading Your Movies💪
+            💪Loading...💪
           </article>
         }
-        {this.state.movieDetails && this.state.video &&
           <section className="poster-section"
             style={
+              // this.state.movieDetails &&
               { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
             }
-          >
+            >
             
+            {this.state.movieDetails && this.state.video &&
             <article className="glass"> 
               <div className='details'>
                 {(!this.state.movieDetails.title || !this.state.movieDetails.avgRating || !this.state.movieDetails.genres || !this.state.movieDetails.overview
@@ -123,8 +128,8 @@ export default class MovieInfo extends React.Component {
                 </div>  
               }
             </article>
-          </section>
         }
+          </section>
       </>
     )
   }
