@@ -7,7 +7,8 @@ import MovieInfo from '../MovieInfo/MovieInfo'
 import './App.css'
 
 function App() {
-  return (
+
+  return ( 
     <div className="app">
       <Switch>
       <Route
@@ -22,12 +23,21 @@ function App() {
       />
       <Route
         exact path='/'
-        component={ Home }
+        render={() => {
+          return (
+            <Home handleClick={getMovies} />
+          )
+        }}
       />
       <Route render= {() => <h1>Page Not found</h1>} />
       </Switch>
     </div>
   )
+}
+
+const getMovies = (movies) => {
+  console.log(movies);
+  return movies;
 }
 
 export default App;

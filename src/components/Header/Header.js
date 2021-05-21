@@ -55,7 +55,7 @@ export default class Header extends React.Component {
               className='movie-search-field'
               type='search'
               name='search'
-              placeholder='What movie were you looking for?'
+              placeholder={this.state.width >= 576 ? 'What movie were you looking for?' : 'Movie search'}
               autoComplete='off'
               onClick={() => window.scrollTo(0, 0)}
               onChange={e => this.props.handleChange(e)}

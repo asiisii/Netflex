@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   transition-property: opacity, max-height;
-  transition-duration: .75s;
+  transition-duration: .50s;
 }
 
 .closed {

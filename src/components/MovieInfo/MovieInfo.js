@@ -29,7 +29,7 @@ export default class MovieInfo extends React.Component {
   }
   componentDidMount() {
     this.handleAnimation();
-    console.log('animation ');
+    
     const movie = `movies/${this.state.id}`
     const video = `${movie}/videos`
 

@@ -13,7 +13,7 @@ export default function MoviePoster(props) {
         className='poster-image'
         src={props.image} 
         alt={`${props.title} poster`} 
-        // onClick={() => props.display(props.id)}
+        onClick={props.handleClick}
       />
     </Link>
   )
