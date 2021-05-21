@@ -20,6 +20,7 @@ export default function Movies(props) {
   return (
     <div className={`movie-catalogue ${props.className}`}>
       <h1 className='results-title'>{props.title}</h1>
+      {props.error && <p className='search-error'>No movies found. Please refine your search.</p>}
       <section className='movie-grid'>
         {posters}
       </section>

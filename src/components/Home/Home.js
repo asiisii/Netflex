@@ -25,7 +25,6 @@ export default class Home extends React.Component {
     const query = e.target.value.toLowerCase();
 
     if (query) {
-
       filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
 
       if (!filteredMovies.length) {
@@ -60,17 +59,25 @@ export default class Home extends React.Component {
       <div className="home">
         <Header handleChange={this.filterMovies} />
         <main>
-          {!this.state.filteredMovies.length ? <Preview className='opened'/> : <Preview className='closed' />}
-          {this.state.error && <h2>{this.state.error}</h2>}
+          {this.state.error && this.state.error !== 'No movies found.' && <h2>{this.state.error}</h2>}
+          {(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
+            ? <Preview className='closed'/> : <Preview className='opened' />
+          }
           {!this.state.error && !this.state.movies.length && 
-          <h2 className="loading">
-            💪Loading Your Movies💪
-          </h2>}
-          {this.state.movies.length && !this.state.error &&
+            <h2 className="loading">
+              💪Loading Your Movies💪
+            </h2>
+          }
+          {this.state.movies.length &&
             <Movies 
-              title={!this.state.filteredMovies.length ? 'All Movies' : 'Search Results'}
-              movies={this.state.filteredMovies.length ? this.state.filteredMovies : this.state.movies} 
+              title={(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
+                ? 'Search Results' : 'All Movies'
+              }
+              movies={(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
+                ? this.state.filteredMovies : this.state.movies
+              } 
               display={this.displayAMovie}
+              error={this.state.error}
             />
           }   
         </main>
