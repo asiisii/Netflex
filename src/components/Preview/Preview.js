@@ -3,7 +3,7 @@ import './Preview.css'
 
 export default function Preview(props) {
   return (
-    <section className={`preview ${props.className}`}>
+    <section className={props.className ? `preview ${props.className}` : `preview`} >
       <div className="trending-container">
         <img className="top-img" src="https://observer.case.edu/wp-content/uploads/2020/09/Mulan-900x506.jpg" alt="" />
         <div className="info">

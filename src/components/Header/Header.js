@@ -36,6 +36,10 @@ export default class Header extends React.Component {
     window.addEventListener('resize', this.handleResize);
   }
 
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
   render() {
     return (
       <header>

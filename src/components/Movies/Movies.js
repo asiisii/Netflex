@@ -18,7 +18,7 @@ export default function Movies(props) {
     })
   
   return (
-    <div className='movie-catalogue'>
+    <div className={`movie-catalogue ${props.className}`}>
       <h1 className='results-title'>{props.title}</h1>
       <section className='movie-grid'>
         {posters}
