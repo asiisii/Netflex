@@ -49,7 +49,7 @@ export default class Home extends React.Component {
 
     apiCalls.fetchApiData('movies')
       .then(data => this.setState({
-        movies: cleanApiData.getAllMovies(data)
+        movies: cleanApiData.cleanAllMoviesData(data)
       }))
       .catch(() => this.setState({error: 'Sorry! We can\'t find the page you\'re looking for...'}))
   }
