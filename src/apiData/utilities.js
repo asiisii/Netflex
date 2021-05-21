@@ -1,5 +1,5 @@
 const cleanApiData = {
-  getAllMovies: (data) => {
+  cleanAllMoviesData: (data) => {
     return data.movies.map(movie => {
       return {
         id: movie.id,
