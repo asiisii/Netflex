@@ -1,31 +1,21 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-
 import Home from '../Home/Home'
 import MovieInfo from '../MovieInfo/MovieInfo'
-
 import './App.css'
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      moviesIDList: ''
-    }
-  }
-
-  render() {
-    return ( 
-      <div className="app">
-        <Switch>
+function App() {
+  return ( 
+    <div className="app">
+      <Switch>
         <Route
           exact path='/movies/:id'
           render={({ match }) => {
-              return (
-                <MovieInfo 
-                  id={match.params.id}
-                />
-              ) 
+            return (
+              <MovieInfo 
+                id={match.params.id}
+              />
+            ) 
           }}
         />
         <Route
@@ -37,11 +27,10 @@ class App extends React.Component {
           }}
         />
         <Route render= {() => <h1>Page Not found</h1>} />
-        </Switch>
-      </div>
-    )
-  }
+      </Switch>
+    </div>
+  )
+  
 }
-
 
 export default App;
