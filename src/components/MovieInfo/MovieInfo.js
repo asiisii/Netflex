@@ -30,13 +30,13 @@ export default class MovieInfo extends React.Component {
   componentDidMount() {
     this.handleAnimation();
     
-    const movie = `movies/${this.state.id}`
+    const movie = `/movies/${this.state.id}`
     const video = `${movie}/videos`
 
     apiCalls.fetchApiData(movie)
       .then(data => {
         this.setState({
-          movieDetails: cleanApiData.getAMovie(data)
+          movieDetails: cleanApiData.cleanSingleMovieData(data)
         })
         
       })
