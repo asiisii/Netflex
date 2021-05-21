@@ -18,14 +18,7 @@ function App() {
             ) 
           }}
         />
-        <Route
-          exact path='/'
-          render={() => {
-            return (
-              <Home handleClick={this.getMoviesID} />
-            )
-          }}
-        />
+        <Route exact path='/' component = {Home}/>
         <Route render= {() => <h1>Page Not found</h1>} />
       </Switch>
     </div>
