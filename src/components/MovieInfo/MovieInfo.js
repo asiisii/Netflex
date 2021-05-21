@@ -33,7 +33,6 @@ export default class MovieInfo extends React.Component {
 
     apiCalls.fetchApiData(movie)
       .then(res => {
-        console.log(res.status)
         this.setState({statusCode: res.status})
         return res.json()
       })
@@ -56,9 +55,7 @@ export default class MovieInfo extends React.Component {
           video: cleanApiData.getVideoInfo(data)
         })
       })
-      .catch(() => this.setState({
-        fetchedError: true
-      }))
+      .catch(() => this.setState({fetchedError: true}))
   }
 
   render() {
