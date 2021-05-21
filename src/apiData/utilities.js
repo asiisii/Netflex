@@ -9,7 +9,7 @@ const cleanApiData = {
     })
   },
 
-  getAMovie: (data) => {
+  cleanSingleMovieData: (data) => {
    const movieInfo = data.movie
    let hr = parseInt(movieInfo.runtime / 60)
    let m = movieInfo.runtime % 60
