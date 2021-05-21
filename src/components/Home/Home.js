@@ -8,8 +8,8 @@ import cleanApiData from '../../apiData/utilities'
 import { gsap, Back } from 'gsap'
 
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       movies: '',
       filteredMovies: [],
