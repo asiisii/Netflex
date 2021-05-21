@@ -17,6 +17,10 @@
   font-weight: lighter;
 }
 
+.search-error {
+ width: 100%; 
+}
+
 .movie-grid {
   max-width: 1440px;
   display: grid;

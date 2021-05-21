@@ -2,4 +2,5 @@
   background: radial-gradient(#2D3D4C, #202126);
   background-position: center;
   background-attachment: fixed;
+  min-height: 100vh;
 }

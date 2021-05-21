@@ -3,19 +3,19 @@
   background-position: center;
   background-attachment: scroll;
   width: 100%;
-  height: 486px;
+  height: 40vw;
+  max-height: 486px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition-property: height, opacity;
-  transition-duration: .75s;
-  /* transition-timing-function: ease; */
+  transition-property: opacity, max-height;
+  transition-duration: .50s;
 }
 
 .closed {
-  height: 0px;
+  max-height: 0px;
   opacity: 0;
 }
 
@@ -29,7 +29,6 @@
   width: 100%;
   max-width: 1600px;
   height: 100%;
-  /* padding: 3.5em 0 7em 0; */
 }
 
 .top-img {
@@ -73,26 +72,8 @@
   }
 }
 
-@media only screen and (max-width: 1440px) {
-  .preview {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .preview {
-    /* height: 396px; */
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .preview {
-    /* height: 315px; */
-  }
-}
-
 @media only screen and (max-width: 460px) {
   .preview {
-    /* height: 234px; */
+    height: 162px;
   }
 }

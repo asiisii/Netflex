@@ -22,7 +22,7 @@
   row-gap: 64px;
   padding: 5em 5em 0 5em;
   border-radius: 160px;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
+  /* box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60); */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -149,6 +149,7 @@
   font-size: 1.5em;
   font-weight: lighter;
   color: rgba(255, 255, 255);
+  text-decoration: none;
   transition: background .25s;
   cursor: pointer;
 }
