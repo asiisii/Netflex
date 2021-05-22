@@ -58,7 +58,7 @@ export default class Header extends React.Component {
               name='search'
               placeholder={width >= 576 ? 'What movie were you looking for?' : 'Movie search'}
               autoComplete='off'
-              onClick={() => window.scrollTo(0, 0)}
+              onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
               onChange={e => this.props.handleChange(e)}
             />
           }

@@ -248,18 +248,32 @@
   }
 
   .details {
-    padding: 0 24px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(4, max-content);
+    padding: 0 16px;
+    overflow: scroll;
+  }
+
+  .poster-title {
+    grid-row: 1;
+  }
+
+  .genre {
+    grid-row: 2;
   }
 
   .overview {
-    /* max-height: 80px;
-    overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;  */
+    grid-row: 3;
+    /* text-overflow: ellipsis; */
   }
 
   .overview::-webkit-scrollbar {
     display: none;
+  }
+
+  .stats {
+    grid-row: 4;
   }
 
   .btm-menu {
