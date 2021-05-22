@@ -248,8 +248,10 @@
 
   .details {
     height: 100%;
-    display: grid;
-    grid-template-rows: repeat(4, max-content);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 0 16px;
     overflow: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -258,27 +260,6 @@
 
   .details::-webkit-scrollbar {
     display: none;
-  }
-
-  .poster-title {
-    grid-row: 1;
-  }
-
-  .genre {
-    grid-row: 2;
-  }
-
-  .overview {
-    grid-row: 3;
-    /* text-overflow: ellipsis; */
-  }
-
-  .overview::-webkit-scrollbar {
-    display: none;
-  }
-
-  .stats {
-    grid-row: 4;
   }
 
   .btm-menu {
