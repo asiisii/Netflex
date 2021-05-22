@@ -26,6 +26,14 @@ describe('Homepage', () => {
 
   })
 
+  describe('Invalid Url', () => {
+    it('should display error msg for invalid url', () => {
+      cy.visit('http://localhost:3000/asdf')
+        .get('h1')
+        .contains('Page Not Found')
+    })
+
+  })
   
   
 
