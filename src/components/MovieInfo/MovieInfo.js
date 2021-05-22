@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { gsap, Back } from 'gsap'
-
 import apiCalls from '../../apiData/apiCalls'
 import cleanApiData from '../../apiData/utilities'
+import { gsap, Back } from 'gsap'
 import './MovieInfo.css'
 
 export default class MovieInfo extends React.Component {
@@ -13,7 +12,9 @@ export default class MovieInfo extends React.Component {
       id: props.id,
       movieDetails: '',
       video: '',
-      effect: gsap.timeline()
+      effect: gsap.timeline(),
+      statusCode: 200,
+      fetchedError: false
     }
   }
 
@@ -24,50 +25,59 @@ export default class MovieInfo extends React.Component {
     )
   }
   
-  handleError = (id) => {
-    return id !== this.state.id ? this.setState({error: 'Wrong hood'}) : null
-  }
   componentDidMount() {
     this.handleAnimation();
     
-    const movie = `movies/${this.state.id}`
+    const movie = `/movies/${this.state.id}`
     const video = `${movie}/videos`
 
     apiCalls.fetchApiData(movie)
+      .then(res => {
+        this.setState({statusCode: res.status})
+        return res.json()
+      })
       .then(data => {
         this.setState({
-          movieDetails: cleanApiData.getAMovie(data)
+          movieDetails: cleanApiData.cleanSingleMovieData(data)
         })
-        
+       return !this.state.movieDetails ? this.setState({error: 'Request failed!'}) : this.state.movieDetails
       })
       .then(() => this.handleError(this.state.movieDetails.id))
-      .catch(() => this.setState({error: 'Request failed!'}))
+      .catch(() => this.setState({ fetchedError: true}))
 
     apiCalls.fetchApiData(video)
+      .then(res => {
+        this.setState({statusCode: res.status})
+        return res.json()
+      })
       .then(data => {
         this.setState({
           video: cleanApiData.getVideoInfo(data)
         })
       })
-      .catch(() => this.setState({error: 'Request failed!'}))
+      .catch(() => this.setState({fetchedError: true}))
   }
 
   render() {
     return (
       <>
-        {!this.state.movieDetails && 
+        {this.state.fetchedError && !this.state.movieDetails &&
+          <article className="glass">
+            {apiCalls.checkForError(this.state.statusCode)}
+          </article>
+        }
+        {!this.state.movieDetails && !this.state.fetchedError &&
           <article className="glass">
             💪Loading...💪
           </article>
         }
-          <section className="poster-section"
-            style={
-              // this.state.movieDetails &&
-              { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
-            }
-            >
-            
-            {this.state.movieDetails && this.state.video &&
+        <section className="poster-section"
+          style={
+            { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
+          }
+          >
+          {this.state.movieDetails && this.state.video && 
+            this.state.id.split('').length === 6 && 
             <article className="glass"> 
               <div className='details'>
                 {(!this.state.movieDetails.title || !this.state.movieDetails.avgRating || !this.state.movieDetails.genres || !this.state.movieDetails.overview
@@ -128,8 +138,8 @@ export default class MovieInfo extends React.Component {
                 </div>  
               }
             </article>
-        }
-          </section>
+          }
+        </section>
       </>
     )
   }

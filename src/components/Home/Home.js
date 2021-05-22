@@ -8,25 +8,24 @@ import cleanApiData from '../../apiData/utilities'
 import { gsap, Back } from 'gsap'
 
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       movies: '',
       filteredMovies: [],
       error: '',
-      effect: gsap.timeline()
+      effect: gsap.timeline(),
+      statusCode: 200,
+      fetchedError: false
     }
   }
 
   filterMovies = (e) => {
     this.setState({ error: '' })
-
     let filteredMovies;
     const query = e.target.value.toLowerCase();
-
     if (query) {
       filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
-
       if (!filteredMovies.length) {
         this.setState({ error: 'No movies found.'})
       } 
@@ -42,16 +41,23 @@ export default class Home extends React.Component {
     { ease: Back.easeOut, x: 2990, duration: 1.5}).then(() => {
       document.querySelector('.home').removeAttribute('style')
     })
+    this.setState({fetchedError: false})
   }
 
   componentDidMount = () => {
     this.hidemovie();
 
     apiCalls.fetchApiData('movies')
+      .then(res => {
+        this.setState({statusCode: res.status})
+        return res.json()
+      })
       .then(data => this.setState({
-        movies: cleanApiData.getAllMovies(data)
+        movies: cleanApiData.cleanAllMoviesData(data)
       }))
-      .catch(() => this.setState({error: 'Sorry! We can\'t find the page you\'re looking for...'}))
+      .catch(() => this.setState({
+        fetchedError: true
+      }))
   }
 
   render() {
@@ -63,12 +69,13 @@ export default class Home extends React.Component {
           {(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
             ? <Preview className='closed'/> : <Preview className='opened' />
           }
-          {!this.state.error && !this.state.movies.length && 
+          {this.state.fetchedError && apiCalls.checkForError(this.state.statusCode)}
+          {!this.state.error && !this.state.movies.length && !this.state.fetchedError &&
             <h2 className="loading">
               💪Loading Your Movies💪
             </h2>
           }
-          {this.state.movies.length &&
+          {this.state.movies.length && !this.state.fetchedError && 
             <Movies 
               title={(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
                 ? 'Search Results' : 'All Movies'
@@ -77,7 +84,6 @@ export default class Home extends React.Component {
                 ? this.state.filteredMovies : this.state.movies
               } 
               display={this.displayAMovie}
-              handleClick={() => this.props.handleClick(this.state.movies)}
               error={this.state.error}
             />
           }   
