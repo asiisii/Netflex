@@ -64,30 +64,31 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const {movies, filteredMovies, error, fetchedError, statusCode } = this.state
     return (
       <div className="home">
         <Header handleChange={this.filterMovies} />
         <main>
-          {this.state.error && this.state.error !== 'No movies found.' && <h2>{this.state.error}</h2>}
-          {(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
+          {error && error !== 'No movies found.' && <h2>{error}</h2>}
+          {(filteredMovies.length || error === 'No movies found.') 
             ? <Preview className='closed'/> : <Preview className='opened' />
           }
-          {this.state.fetchedError && apiCalls.checkForError(this.state.statusCode)}
-          {!this.state.error && !this.state.movies.length && !this.state.fetchedError &&
+          {fetchedError && apiCalls.checkForError(statusCode)}
+          {!error && !movies.length && !fetchedError &&
             <h2 className="loading">
               💪Loading Your Movies💪
             </h2>
           }
-          {this.state.movies.length && !this.state.fetchedError && 
+          {movies.length && !fetchedError && 
             <Movies 
-              title={(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
+              title={(filteredMovies.length || error === 'No movies found.') 
                 ? 'Search Results' : 'All Movies'
               }
-              movies={(this.state.filteredMovies.length || this.state.error === 'No movies found.') 
-                ? this.state.filteredMovies : this.state.movies
+              movies={(filteredMovies.length || error === 'No movies found.') 
+                ? filteredMovies : movies
               } 
               display={this.displayAMovie}
-              error={this.state.error}
+              error={error}
             />
           }   
         </main>
