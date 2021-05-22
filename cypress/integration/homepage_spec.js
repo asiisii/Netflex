@@ -10,9 +10,7 @@ describe('Homepage', () => {
       cy.get('body').then(body => {
         if (body.get('.loading')) {
           cy.contains('💪Loading Your Movies💪')
-        } else if (body.get('.poster-image')) {
-          cy.should('have.length', 10)
-        }
+        } 
       })
     })
     
