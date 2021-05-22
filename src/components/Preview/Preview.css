@@ -76,32 +76,31 @@
 
 @media only screen and (max-width: 1024px) {
   .movie-title {
+    top: 16px;
+    right: 16px;
     font-size: 72px;
   }
 
   .trending {
     font-size: 24px;
+    bottom: 16px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .movie-title {
-    top: 16px;
-    right: 16px;
-  }
-
   .trending {
-    bottom: 16px;
     padding: 8px 16px;
   }
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 576px) {
   .movie-title {
     top: 0;
     font-size: 48px;
   }
+}
 
+@media only screen and (max-width: 460px) {
   .preview {
     height: 162px;
   }
