@@ -86,7 +86,7 @@ describe('Homepage', () => {
         .should('have.length', 4) 
     })
 
-    it.only('should update title of the page accordingly', () => {
+    it('should update title of the page accordingly', () => {
       cy.get('input[type=search]')
         .type('m')
         .get('.poster-image')
@@ -99,6 +99,18 @@ describe('Homepage', () => {
         .should('have.length', 10)
         .get('.results-title')
         .contains('All Movies')
+    })
+
+    it.only('should hide preview img when user is searching', () => {
+      cy.get('.opened')
+        .find('img')
+        .get('.movie-title')
+        .contains('Mulan')
+        .get('.trending')
+        .contains('Now Trending')
+        .get('input[type=search]')
+        .type('money')
+        .get('.closed')
     })
   })
  
