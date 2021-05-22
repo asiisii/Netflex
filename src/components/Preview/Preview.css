@@ -29,6 +29,7 @@
   width: 100%;
   max-width: 1600px;
   height: 100%;
+  position: relative;
 }
 
 .top-img {
@@ -38,31 +39,32 @@
   object-position: center;
 }
 
-.info {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  align-self: flex-start;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px;
-}
-
-.movie-title,
-.trending {
-  font-size: 36px;
-  line-height: 36px;
-}
-
 .movie-title {
-  font-size: 72px;
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  border-radius: 16px;
+  font-size: 96px;
+  font-weight: normal;
+  font-family: 'mulanregular';
   line-height: 72px;
+  color: #DD2619;
+}
+
+.trending {
+  background: linear-gradient(to left, rgba(0, 0, 0, .25), rgba(0, 0, 0));
+  width: 100%;
+  position: absolute;
+  bottom: 32px;
+  padding: 16px 32px;
+  font-size: 32px;
+  font-weight: lighter;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 @media only screen and (max-width: 1600px) {
   .preview {
-    /* height: 558px; */
     margin: unset;
   }
 
@@ -72,8 +74,44 @@
   }
 }
 
-@media only screen and (max-width: 460px) {
-  .preview {
-    height: 162px;
+@media only screen and (max-width: 1024px) {
+  .movie-title {
+    top: 16px;
+    right: 16px;
+    font-size: 72px;
   }
+
+  .trending {
+    font-size: 24px;
+    bottom: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .trending {
+    padding: 8px 16px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .preview {
+    height: 196px;
+  }
+
+  .movie-title {
+    top: 0;
+    font-size: 48px;
+  }
+
+  .trending {
+    font-size: 18px;
+  }
+}
+
+@font-face {
+  font-family: 'mulanregular';
+  src: url('./fonts/mulan-webfont.woff2') format('woff2'),
+       url('./fonts/mulan-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
