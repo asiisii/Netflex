@@ -12,7 +12,7 @@ export default function Movies(props) {
         title={movie.title}
         image={movie.poster}
         display={props.display}
-        handleClick={props.handleClick}
+        // handleClick={props.handleClick}
       />
     )
   })
