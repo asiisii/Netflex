@@ -59,53 +59,54 @@ export default class MovieInfo extends React.Component {
   }
 
   render() {
+    const {id, movieDetails, video, statusCode, fetchedError} = this.state
     return (
       <>
-        {this.state.fetchedError && !this.state.movieDetails &&
+        {fetchedError && !movieDetails &&
           <article className="glass">
-            {apiCalls.checkForError(this.state.statusCode)}
+            {apiCalls.checkForError(statusCode)}
           </article>
         }
-        {!this.state.movieDetails && !this.state.fetchedError &&
+        {!movieDetails && !fetchedError &&
           <article className="glass">
             💪Loading...💪
           </article>
         }
         <section className="poster-section"
           style={
-            { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
+            { backgroundImage: `url(${movieDetails.backgroundImg})` }
           }
           >
-          {this.state.movieDetails && this.state.video && 
-            this.state.id.split('').length === 6 && 
+          {movieDetails && video && 
+            id.split('').length === 6 && 
             <article className="glass"> 
               <div className='details'>
-                {(!this.state.movieDetails.title || !this.state.movieDetails.avgRating || !this.state.movieDetails.genres || !this.state.movieDetails.overview
-                || !this.state.movieDetails.hr || !this.state.movieDetails.mins || !this.state.movieDetails.releaseDate) && 
+                {(!movieDetails.title || !movieDetails.avgRating || !movieDetails.genres || !movieDetails.overview
+                || !movieDetails.hr || !movieDetails.mins || !movieDetails.releaseDate) && 
                 <h1 className="poster-title"> 
                   No Information Available. <br/>BLAME COVID-19  
                 </h1>
                 }
-                {this.state.movieDetails.title && this.state.movieDetails.avgRating && this.state.movieDetails.genres && this.state.movieDetails.overview
-                && this.state.movieDetails.hr && this.state.movieDetails.mins && this.state.movieDetails.releaseDate &&
+                {movieDetails.title && movieDetails.avgRating && movieDetails.genres && movieDetails.overview
+                && movieDetails.hr && movieDetails.mins && movieDetails.releaseDate &&
                   <>
                     <h1 className="poster-title"> 
-                      {this.state.movieDetails.title} 
+                      {movieDetails.title} 
                     </h1>
-                    <p className="genre">{this.state.movieDetails.genres}</p>
-                    <p className="overview">{this.state.movieDetails.overview} </p>
+                    <p className="genre">{movieDetails.genres}</p>
+                    <p className="overview">{movieDetails.overview} </p>
                     <div className="stats">
                       <span className='runtime'>
                         <h4>Runtime</h4>
-                        <p>{this.state.movieDetails.hr}hrs {this.state.movieDetails.mins}mins</p> 
+                        <p>{movieDetails.hr}hrs {movieDetails.mins}mins</p> 
                       </span>
                       <span className="release-date">
                         <h4>Release date</h4>
-                        <p>{this.state.movieDetails.releaseDate}</p>
+                        <p>{movieDetails.releaseDate}</p>
                       </span>
                       <span className="rating">
                         <h4>Rating</h4>
-                        <p>{this.state.movieDetails.avgRating}/10</p>
+                        <p>{movieDetails.avgRating}/10</p>
                       </span> 
                     </div> 
                   </>
@@ -118,22 +119,22 @@ export default class MovieInfo extends React.Component {
                 >Go back
                 </NavLink>
               </footer>
-              {!this.state.video.hasLink && 
+              {!video.hasLink && 
                 <div className='trailer-container'> 
                 <img
                   className='trailer'
                   title="YouTube video player"
-                  src={this.state.video.videoLink}
+                  src={video.videoLink}
                   alt="video unaviable logo"> 
                 </img> 
               </div>
               }
-              {this.state.video.hasLink &&
+              {video.hasLink &&
                 <div className='trailer-container'> 
                   <iframe
                     className='trailer'
                     title="YouTube video player"
-                    src={this.state.video.videoLink}>  
+                    src={video.videoLink}>  
                   </iframe> 
                 </div>  
               }
