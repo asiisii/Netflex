@@ -61,21 +61,21 @@ export default class MovieInfo extends React.Component {
   render() {
     return (
       <>
-        {this.state.fetchedError && !this.state.movieDetails &&
-          <article className="glass">
-            {apiCalls.checkForError(this.state.statusCode)}
-          </article>
-        }
-        {!this.state.movieDetails && !this.state.fetchedError &&
-          <article className="glass">
-            💪Loading...💪
-          </article>
-        }
         <section className="poster-section"
           style={
             { backgroundImage: `url(${this.state.movieDetails.backgroundImg})` }
           }
-          >
+        >
+          {!this.state.movieDetails && !this.state.fetchedError &&
+          <article className="glass-msg">
+            💪Loading...💪
+          </article>
+          }
+          {this.state.fetchedError && !this.state.movieDetails &&
+            <article className="glass-msg">
+              {apiCalls.checkForError(this.state.statusCode)}
+            </article>
+          }
           {this.state.movieDetails && this.state.video && 
             this.state.id.split('').length === 6 && 
             <article className="glass"> 
