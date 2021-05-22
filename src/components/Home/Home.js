@@ -84,7 +84,6 @@ export default class Home extends React.Component {
                 ? this.state.filteredMovies : this.state.movies
               } 
               display={this.displayAMovie}
-              handleClick={() => this.props.handleClick(this.state.movies)}
               error={this.state.error}
             />
           }   
