@@ -38,9 +38,12 @@ export default class Home extends React.Component {
   
   hidemovie = () => {
     this.state.effect.from('.home', 
-    { ease: Back.easeOut, x: 2990, duration: 1.5}).then(() => {
+    { ease: Back.easeOut, x: 2990, duration: 1.5})
+    // .then(() => {
+    //   document.querySelector('.home').removeAttribute('style')
+    // })
       document.querySelector('.home').removeAttribute('style')
-    })
+
     this.setState({fetchedError: false})
   }
 
