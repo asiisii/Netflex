@@ -1,14 +1,20 @@
 describe('Homepage', () => {
   
   beforeEach(() => {
-    cy.checkAllMoviesData()
+      cy.checkAllMoviesData()
   })
+  
   describe('Onload', () => {
-
-    // it.only('should let user know the movie list is loading', () => {
-    //   cy.get('.loading')
-    //     .contains('💪Loading Your Movies💪')
-    // })
+      
+    it.only('should let user know the movie list is loading', () => {
+      cy.get('body').then(body => {
+        if (body.get('.loading')) {
+          cy.contains('💪Loading Your Movies💪')
+        } else if (body.get('.poster-image')) {
+          cy.should('have.length', 10)
+        }
+      })
+    })
     
     it('should display header and preview img', () => {
       cy.contains('.app-logo','Netflex')
