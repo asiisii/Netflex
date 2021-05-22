@@ -22,7 +22,6 @@
   row-gap: 64px;
   padding: 5em 5em 0 5em;
   border-radius: 160px;
-  /* box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60); */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -55,7 +54,6 @@
 }
 
 .overview {
-  /* height: 100%; */
   margin-bottom: 16px;
   text-align: justify;
 }
@@ -226,6 +224,7 @@
   .poster-section {
     min-height: unset;
   }
+
   .glass {
     background: rgba(0, 0, 0, 0.95);
     width: 100%;
@@ -253,6 +252,12 @@
     grid-template-rows: repeat(4, max-content);
     padding: 0 16px;
     overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .details::-webkit-scrollbar {
+    display: none;
   }
 
   .poster-title {
