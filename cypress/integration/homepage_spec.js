@@ -5,11 +5,11 @@ describe('Homepage', () => {
   })
   describe('Onload', () => {
 
-    it('should let user know the movie list is loading', () => {
-      cy.get('.loading')
-        .contains('💪Loading Your Movies💪')
-    })
-  
+    // it.only('should let user know the movie list is loading', () => {
+    //   cy.get('.loading')
+    //     .contains('💪Loading Your Movies💪')
+    // })
+    
     it('should display header and preview img', () => {
       cy.contains('.app-logo','Netflex')
       cy.get('input[type=search]')
@@ -21,17 +21,17 @@ describe('Homepage', () => {
     })
   
     it('should retrieve all the movies', () => {
+      cy.wait('@getAllMovies') //alias for our fixtures data
+        .its('response.statusCode')
+        .should('eq', 200)
       cy.contains('.results-title','All Movies')
-      cy.get('.poster-image')
+        .get('.poster-image')
         .should('have.length', 10)
         .should('be.visible')
     })
   })
   
   describe('Onclick', () => {
-    // beforeEach(() => {
-    //   cy.checkAllMoviesData()
-    // })
 
     it('should have / path on load', () => {
       cy.url().should('equal', 'http://localhost:3000/')
@@ -40,8 +40,9 @@ describe('Homepage', () => {
     it('should say loading your movies while wating on movie to get displayed', () => {
       cy.get('.poster-image')
         .eq(0).click()
+        .url().should('equal', 'http://localhost:3000/movies/694919')
         .get('.glass')
-        .contains('💪Loading Your Movies💪')
+        .contains('💪Loading...💪')
     })
 
     it('should have link path to specific movie on poster click', () => {
@@ -56,12 +57,12 @@ describe('Homepage', () => {
       cy.get('.poster-image')
         .eq(0).click()
         .get('.glass')
-        .contains('💪Loading Your Movies💪')
+        .contains('💪Loading...💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .url().should('not.equal', 'http://localhost:3000/')
       cy.reload()
         .get('.glass')
-        .contains('💪Loading Your Movies💪')
+        .contains('💪Loading...💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .url().should('not.equal', 'http://localhost:3000/')
     })
