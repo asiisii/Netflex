@@ -2,7 +2,7 @@ import allMovies from "../fixtures/allMovies"
 
 const baseURL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
 Cypress.Commands.add('checkAllMoviesData', () => {
-  cy.intercept(baseURL, allMovies )
+  cy.intercept(baseURL, allMovies ).as('getAllMovies')
     .visit('http://localhost:3000/')
 })
 
