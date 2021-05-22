@@ -94,15 +94,17 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .preview {
+    height: 196px;
+  }
+
   .movie-title {
     top: 0;
     font-size: 48px;
   }
-}
 
-@media only screen and (max-width: 460px) {
-  .preview {
-    height: 162px;
+  .trending {
+    font-size: 18px;
   }
 }
 
