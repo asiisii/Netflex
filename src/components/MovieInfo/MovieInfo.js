@@ -93,7 +93,9 @@ export default class MovieInfo extends React.Component {
                       {this.state.movieDetails.title} 
                     </h1>
                     <p className="genre">{this.state.movieDetails.genres}</p>
-                    <p className="overview">{this.state.movieDetails.overview} </p>
+                    <div className='overview'>
+                      <p>{this.state.movieDetails.overview} </p>
+                    </div>
                     <div className="stats">
                       <span className='runtime'>
                         <h4>Runtime</h4>
