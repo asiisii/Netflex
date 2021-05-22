@@ -6,7 +6,7 @@ describe('Homepage', () => {
   
   describe('Onload', () => {
       
-    it.only('should let user know the movie list is loading', () => {
+    it('should let user know the movie list is loading', () => {
       cy.get('body').then(body => {
         if (body.get('.loading')) {
           cy.contains('💪Loading Your Movies💪')
