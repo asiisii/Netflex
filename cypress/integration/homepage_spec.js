@@ -71,21 +71,35 @@ describe('Homepage', () => {
         .url().should('not.equal', 'http://localhost:3000/')
     })
 
-    it.only('should change the number of poster when search match', () => {
+    it('should change the number of posters when search match', () => {
       cy.get('.poster-image')
         .should('have.length', 10) 
-      cy.get('input[type=search]')
+        .get('input[type=search]')
         .should('be.visible')
         .type('mulan')
-      cy.get('.poster-image')
+        .get('.poster-image')
         .should('have.length', 1) 
-      cy.focused().clear()
-      cy.get('input[type=search]')
+        .focused().clear()
+        .get('input[type=search]')
         .type('m')
-      cy.get('.poster-image')
+        .get('.poster-image')
         .should('have.length', 4) 
     })
 
+    it.only('should update title of the page accordingly', () => {
+      cy.get('input[type=search]')
+        .type('m')
+        .get('.poster-image')
+        .should('have.length', 4)
+        .get('.results-title')
+        .contains('Search Results')
+        .get('input[type=search]')
+        .clear() 
+        .get('.poster-image')
+        .should('have.length', 10)
+        .get('.results-title')
+        .contains('All Movies')
+    })
   })
  
 
