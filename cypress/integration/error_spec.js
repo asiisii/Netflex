@@ -16,6 +16,13 @@ describe('Homepage', () => {
         .contains('Internal Server Error. Our whole team are now aware.')
     })
 
+    it('should display error msg for other errors', () => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        statusCode: 400
+      })
+      cy.visit('http://localhost:3000/')
+        .contains('Oops! Request failed. Please try again.')
+    })
 
   })
 
