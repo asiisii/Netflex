@@ -41,27 +41,28 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const {mobileSearchOpen, width} = this.state
     return (
       <header>
-        {!this.state.mobileSearchOpen && <h3 className='app-logo'>Netflex</h3>}
+        {!mobileSearchOpen && <h3 className='app-logo'>Netflex</h3>}
         <div className='header-actions'>
-          {this.state.mobileSearchOpen && 
+          {mobileSearchOpen && 
             <button onClick={this.handleClick} className='close-search-btn'>
               <img src={backIcon} alt='back icon'/>
             </button>
           }
-          {(this.state.mobileSearchOpen || this.state.width >= 576) &&
+          {(mobileSearchOpen || width >= 576) &&
             <input 
               className='movie-search-field'
               type='search'
               name='search'
-              placeholder={this.state.width >= 576 ? 'What movie were you looking for?' : 'Movie search'}
+              placeholder={width >= 576 ? 'What movie were you looking for?' : 'Movie search'}
               autoComplete='off'
               onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
               onChange={e => this.props.handleChange(e)}
             />
           }
-          {!this.state.mobileSearchOpen &&
+          {!mobileSearchOpen &&
             <>
               <button 
               className='mobile-search-btn'

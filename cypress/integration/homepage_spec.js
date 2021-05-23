@@ -71,6 +71,47 @@ describe('Homepage', () => {
         .url().should('not.equal', 'http://localhost:3000/')
     })
 
+    it('should change the number of posters when search match', () => {
+      cy.get('.poster-image')
+        .should('have.length', 10) 
+        .get('input[type=search]')
+        .should('be.visible')
+        .type('mulan')
+        .get('.poster-image')
+        .should('have.length', 1) 
+        .focused().clear()
+        .get('input[type=search]')
+        .type('m')
+        .get('.poster-image')
+        .should('have.length', 4) 
+    })
+
+    it('should update title of the page accordingly', () => {
+      cy.get('input[type=search]')
+        .type('m')
+        .get('.poster-image')
+        .should('have.length', 4)
+        .get('.results-title')
+        .contains('Search Results')
+        .get('input[type=search]')
+        .clear() 
+        .get('.poster-image')
+        .should('have.length', 10)
+        .get('.results-title')
+        .contains('All Movies')
+    })
+
+    it.only('should hide preview img when user is searching', () => {
+      cy.get('.opened')
+        .find('img')
+        .get('.movie-title')
+        .contains('Mulan')
+        .get('.trending')
+        .contains('Now Trending')
+        .get('input[type=search]')
+        .type('money')
+        .get('.closed')
+    })
   })
  
 
