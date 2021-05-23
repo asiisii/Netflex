@@ -9,7 +9,7 @@ export default function Preview({className}) {
         {/* <div className="info">
         </div> */}
         <h1 className="movie-title">Mulan</h1>
-        <h3 className="trending">Now Trending</h3>
+        <h2 className="trending">Now Trending</h2>
       </div>
     </section>
   )
