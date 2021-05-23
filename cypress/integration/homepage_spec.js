@@ -45,7 +45,7 @@ describe('Homepage', () => {
       cy.get('.poster-image')
         .eq(0).click()
         .url().should('equal', 'http://localhost:3000/movies/694919')
-        .get('.glass')
+        .get('.glass-msg')
         .contains('💪Loading...💪')
     })
 
@@ -60,12 +60,12 @@ describe('Homepage', () => {
     it('should still display movie info on refresh', () => {
       cy.get('.poster-image')
         .eq(0).click()
-        .get('.glass')
+        .get('.glass-msg')
         .contains('💪Loading...💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .url().should('not.equal', 'http://localhost:3000/')
       cy.reload()
-        .get('.glass')
+        .get('.glass-msg')
         .contains('💪Loading...💪')
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .url().should('not.equal', 'http://localhost:3000/')
@@ -101,7 +101,7 @@ describe('Homepage', () => {
         .contains('All Movies')
     })
 
-    it.only('should hide preview img when user is searching', () => {
+    it('should hide preview img when user is searching', () => {
       cy.get('.opened')
         .find('img')
         .get('.movie-title')
