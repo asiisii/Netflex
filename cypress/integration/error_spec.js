@@ -35,7 +35,6 @@ describe('Homepage', () => {
   
     it('should display error msg for invalid url for movie info', () => {
       cy.visit('http://localhost:3000/movies/123333')
-        .get('h1')
         .contains('Sorry! We can\'t find the page you\'re looking for...')
     })
   })
