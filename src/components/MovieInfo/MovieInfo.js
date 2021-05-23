@@ -74,11 +74,11 @@ export default class MovieInfo extends React.Component {
           }
           {fetchedError && !movieDetails &&
             <article className="glass-msg">
-              {apiCalls.checkForError(this.state.statusCode)}
+              {apiCalls.checkForError(statusCode)}
             </article>
           }
           {movieDetails && video && 
-            this.state.id.split('').length === 6 && 
+            id.split('').length === 6 && 
             <article className="glass"> 
               <div className='details'>
                 {(!movieDetails.title || !movieDetails.avgRating || !movieDetails.genres || !movieDetails.overview
