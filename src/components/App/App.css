@@ -3,4 +3,12 @@
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
+  display: flex;
+}
+
+.not-found-msg {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
 }

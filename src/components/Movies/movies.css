@@ -19,6 +19,7 @@
 
 .search-error {
  width: 100%; 
+ max-width: 1440px;
 }
 
 .movie-grid {

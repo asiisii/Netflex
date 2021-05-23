@@ -19,7 +19,10 @@ function App() {
           }}
         />
         <Route exact path='/' component = {Home}/>
-        <Route render= {() => <h1>Page Not Found</h1>} />
+        <Route render= {() => {
+          return <h1 className='not-found-msg'>Page Not Found</h1>
+        }}
+        />
       </Switch>
     </div>
   )
