@@ -68,7 +68,7 @@ export default class MovieInfo extends React.Component {
         >
           {!this.state.movieDetails && !this.state.fetchedError &&
           <article className="glass-msg">
-            💪Loading...💪
+            <h1>💪Loading...💪</h1>
           </article>
           }
           {this.state.fetchedError && !this.state.movieDetails &&

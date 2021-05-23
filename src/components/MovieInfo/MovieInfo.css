@@ -243,25 +243,24 @@
     min-height: unset;
   }
 
-  .glass {
+  .glass,
+  .glass-msg {
     background: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    border-radius: unset;
+  }
+  
+  .glass {
     grid-template-rows: max-content auto 3.5em;
     padding: 0;
-    border-radius: unset;
-    box-shadow: unset;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-msg {
-    background: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    height: 100%;
     align-items: flex-start;
     padding: 7.5em 2.5em 2.5em 2.5em;
-    border-radius: unset;
   }
   
   .glass-msg > h1 {
