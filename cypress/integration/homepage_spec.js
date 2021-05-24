@@ -9,7 +9,7 @@ describe('Homepage', () => {
     it('should let user know the movie list is loading', () => {
       cy.get('body').then(body => {
         if (body.get('.loading')) {
-          cy.contains('💪Loading Your Movies💪')
+          cy.contains('Loading Your Movies')
         } 
       })
     })
@@ -46,7 +46,7 @@ describe('Homepage', () => {
         .eq(0).click()
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .get('.glass-msg')
-        .contains('💪Loading...💪')
+        .contains('Loading...')
     })
 
     it('should have link path to specific movie on poster click', () => {
@@ -61,12 +61,12 @@ describe('Homepage', () => {
       cy.get('.poster-image')
         .eq(0).click()
         .get('.glass-msg')
-        .contains('💪Loading...💪')
+        .contains('Loading...')
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .url().should('not.equal', 'http://localhost:3000/')
       cy.reload()
         .get('.glass-msg')
-        .contains('💪Loading...💪')
+        .contains('Loading...')
         .url().should('equal', 'http://localhost:3000/movies/694919')
         .url().should('not.equal', 'http://localhost:3000/')
     })
