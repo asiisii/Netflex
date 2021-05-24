@@ -1,14 +1,15 @@
 const cleanApiData = {
-  getAllMovies: (data) => {
+  cleanAllMoviesData: (data) => {
     return data.movies.map(movie => {
       return {
         id: movie.id,
+        title: movie.title,
         poster: movie.poster_path
       }
     })
   },
 
-  getAMovie: (data) => {
+  cleanSingleMovieData: (data) => {
    const movieInfo = data.movie
    let hr = parseInt(movieInfo.runtime / 60)
    let m = movieInfo.runtime % 60

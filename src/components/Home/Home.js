@@ -8,46 +8,87 @@ import cleanApiData from '../../apiData/utilities'
 import { gsap, Back } from 'gsap'
 
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       movies: '',
+      filteredMovies: [],
       error: '',
-      effect: gsap.timeline()
+      effect: gsap.timeline(),
+      statusCode: 200,
+      fetchedError: false
     }
   }
 
+  filterMovies = (e) => {
+    this.setState({ error: '' })
+    let filteredMovies;
+    const query = e.target.value.toLowerCase();
+    if (query) {
+      filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
+      if (!filteredMovies.length) {
+        this.setState({ error: 'No movies found.'})
+      } 
+    } else {
+      filteredMovies = [];
+    }
+    
+    this.setState({ filteredMovies })
+  }
+  
   hidemovie = () => {
     this.state.effect.from('.home', 
-    { ease: Back.easeOut, x: 2990, duration: 1.5}) 
+    { ease: Back.easeOut, x: 2990, duration: 1.5})
+    // .then(() => {
+    //   document.querySelector('.home').removeAttribute('style')
+    // })
+      document.querySelector('.home').removeAttribute('style')
+
+    this.setState({fetchedError: false})
   }
 
   componentDidMount = () => {
     this.hidemovie();
 
     apiCalls.fetchApiData('movies')
+      .then(res => {
+        this.setState({statusCode: res.status})
+        return res.json()
+      })
       .then(data => this.setState({
-        movies: cleanApiData.getAllMovies(data)
+        movies: cleanApiData.cleanAllMoviesData(data)
       }))
-      .catch(() => this.setState({error: 'Sorry! We can\'t find the page you\'re looking for...'}))
+      .catch(() => this.setState({
+        fetchedError: true
+      }))
   }
 
   render() {
-    console.log(this.state.error);
+    const {movies, filteredMovies, error, fetchedError, statusCode } = this.state
     return (
       <div className="home">
-        <Header />
+        <Header handleChange={this.filterMovies} />
         <main>
-          <Preview className="preview" />
-          {this.state.error && <h2>{this.state.error}</h2>}
-          {!this.state.error && !this.state.movies.length && 
-          <h2 className="loading">
-            💪Loading Your Movies💪
-          </h2>}
-          {this.state.movies.length && !this.state.error &&
+          {error && error !== 'No movies found.' && <h2>{error}</h2>}
+          {(filteredMovies.length || error === 'No movies found.') 
+            ? <Preview className='closed'/> : <Preview className='opened' />
+          }
+          {fetchedError && apiCalls.checkForError(statusCode)}
+          {!error && !movies.length && !fetchedError &&
+            <h2 className="loading">
+              💪Loading Your Movies💪
+            </h2>
+          }
+          {movies.length && !fetchedError && 
             <Movies 
-              movies={this.state.movies} 
+              title={(filteredMovies.length || error === 'No movies found.') 
+                ? 'Search Results' : 'All Movies'
+              }
+              movies={(filteredMovies.length || error === 'No movies found.') 
+                ? filteredMovies : movies
+              } 
               display={this.displayAMovie}
+              error={error}
             />
           }   
         </main>

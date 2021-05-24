@@ -12,19 +12,35 @@
   margin: 0 auto;
 }
 
-.glass {
+.glass,
+.glass-msg {
   background: rgba(0, 0, 0, 0.85);
   width: 75%;
+  border-radius: 160px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.glass {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto 7em;
   column-gap: 32px;
   row-gap: 64px;
   padding: 5em 5em 0 5em;
-  border-radius: 160px;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.60);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+}
+
+.glass-msg {
+  max-width: 960px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 5em 5em 5em;
+}
+
+.glass-msg > h1 {
+  font-size: 2em;
 }
 
 .details {
@@ -55,7 +71,6 @@
 }
 
 .overview {
-  /* height: 100%; */
   margin-bottom: 16px;
   text-align: justify;
 }
@@ -149,6 +164,7 @@
   font-size: 1.5em;
   font-weight: lighter;
   color: rgba(255, 255, 255);
+  text-decoration: none;
   transition: background .25s;
   cursor: pointer;
 }
@@ -185,6 +201,7 @@
   .stats {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
+    column-gap: 16px;
     row-gap: unset;
   }
 
@@ -222,16 +239,32 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .glass {
+  .poster-section {
+    min-height: unset;
+  }
+
+  .glass,
+  .glass-msg {
     background: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    border-radius: unset;
+  }
+  
+  .glass {
     grid-template-rows: max-content auto 3.5em;
     padding: 0;
-    border-radius: unset;
-    box-shadow: unset;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-msg {
+    align-items: flex-start;
+    padding: 7.5em 2.5em 2.5em 2.5em;
+  }
+  
+  .glass-msg > h1 {
+    font-size: 1.5em;
   }
 
   .trailer-container {
@@ -244,17 +277,18 @@
   }
 
   .details {
-    padding: 0 24px;
-  }
-
-  .overview {
-    /* max-height: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 16px;
     overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;  */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
-  .overview::-webkit-scrollbar {
+  .details::-webkit-scrollbar {
     display: none;
   }
 

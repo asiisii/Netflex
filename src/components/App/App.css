@@ -1,14 +1,14 @@
 .app {
-  height: 100vh;
   background: radial-gradient(#2D3D4C, #202126);
   background-position: center;
   background-attachment: fixed;
+  min-height: 100vh;
   display: flex;
-
 }
 
-.loading {
-  margin: auto auto;
+.not-found-msg {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
   text-align: center;
-  font-size: 72px;
 }

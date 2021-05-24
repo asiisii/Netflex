@@ -34,6 +34,6 @@ describe('Movie Info Page', () => {
   it('should return the user to the Home Page when the "Go back" button is selected', () => {
     cy.get('#337401').click()
     cy.get('.close-info-btn').click()
-    cy.url().should('eq', 'http://localhost:3000/') // Once we start using Router, this test will actually be valid
+    cy.url().should('eq', 'http://localhost:3000/') 
   })
 })
