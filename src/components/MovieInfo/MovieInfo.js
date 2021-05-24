@@ -69,7 +69,7 @@ export default class MovieInfo extends React.Component {
         >
           {!movieDetails && !fetchedError &&
           <article className="glass-msg">
-            <h1>💪Loading...💪</h1>
+            <h1>Loading...</h1>
           </article>
           }
           {fetchedError && !movieDetails &&
