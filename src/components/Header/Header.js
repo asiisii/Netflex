@@ -1,9 +1,8 @@
 import React from 'react'
-import './Header.css'
-
 import userIcon from './images/user_icon.svg'
 import searchIcon from './images/search_icon.svg'
 import backIcon from './images/back_icon.svg'
+import './Header.css'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -33,11 +32,11 @@ export default class Header extends React.Component {
   }
 
   componentDidMount = () => {
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentWillUnmount = () => {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize)
   }
 
   render() {

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Header from '../Header/Header'
 import Movies from '../Movies/Movies'
 import Preview from '../Preview/Preview'
@@ -23,14 +22,14 @@ export default class Home extends React.Component {
   filterMovies = (e) => {
     this.setState({ error: '' })
     let filteredMovies;
-    const query = e.target.value.toLowerCase();
+    const query = e.target.value.toLowerCase()
     if (query) {
       filteredMovies = this.state.movies.filter(movie => movie.title.toLowerCase().includes(query))
       if (!filteredMovies.length) {
         this.setState({ error: 'No movies found.'})
       } 
     } else {
-      filteredMovies = [];
+      filteredMovies = []
     }
     
     this.setState({ filteredMovies })
@@ -39,16 +38,12 @@ export default class Home extends React.Component {
   hidemovie = () => {
     this.state.effect.from('.home', 
     { ease: Back.easeOut, x: 2990, duration: 1.5})
-    // .then(() => {
-    //   document.querySelector('.home').removeAttribute('style')
-    // })
-      document.querySelector('.home').removeAttribute('style')
-
+    document.querySelector('.home').removeAttribute('style')
     this.setState({fetchedError: false})
   }
 
   componentDidMount = () => {
-    this.hidemovie();
+    this.hidemovie()
 
     apiCalls.fetchApiData('movies')
       .then(res => {
@@ -76,7 +71,7 @@ export default class Home extends React.Component {
           {fetchedError && apiCalls.checkForError(statusCode)}
           {!error && !movies.length && !fetchedError &&
             <h2 className="loading">
-              💪Loading Your Movies💪
+              Loading Your Movies
             </h2>
           }
           {movies.length && !fetchedError && 
