@@ -73,7 +73,8 @@ App is fully responsive for cross-screen compatibility
 ## Setup Instructions
 1. Clone this [repository](https://github.com/asiisii/Netflex)
 2. `cd` into the repository in your terminal
-3. Then `npm start` in your terminal to view it on your browser
+3. `npm i` to install required dependencies 
+4. Then `npm start` in your terminal to view it on your browser
 
 ## Project Reflection
 ##### Wins
@@ -84,10 +85,10 @@ App is fully responsive for cross-screen compatibility
 - Implementing Router to create a multi-page UX
 - Displaying the proper error depending on the status code
 ##### Overall Impressions
-- Being able to easily refactor the app to implement Router, API data, & controlled form, helped to see the use of the virtual DOM, components resuability, and how easy it is to maintain components and data in React.
+- Being able to easily refactor the app to implement Router, API data, & controlled form, helped to see the use of the virtual DOM, components resuability, and how easy it is to maintain components and data in React
 ##### Future Features
 - Implement login/logout features
-- Create Express microservice to store factorites
+- Create Express microservice to store favorites
 - Display movie informations for trending movie when clicked
 
 ## Credits
